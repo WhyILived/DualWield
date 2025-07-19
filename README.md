@@ -71,6 +71,18 @@ pip install -r requirements.txt
 python main.py
 ```
 
+4. Setup chrome extension
+
+Load the extension in chrome
+- Open Chrome.
+- Go to: chrome://extensions/
+- Toggle Developer mode ON (top right).
+- Click “Load unpacked”.
+- Select the /youtube_watch_logger/extension folder.
+- Extension appears in list (you can pin it; it has no popup, that’s fine).
+
+Run the backend: backend/youtube_logger_server.py
+
 ## 📁 Project Structure
 
 ```
