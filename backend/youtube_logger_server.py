@@ -1,7 +1,10 @@
 # server.py
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from datetime import datetime
 import json
+from downloader import download_video
+from summarize import summarize_video
+
 
 app = Flask(__name__)
 
@@ -30,12 +33,32 @@ def get_youtube_link():
 
     return None
 
+def summarize_youtube_video(youtube_url: str) -> str:
+    """
+    Complete pipeline:
+    1. Download video from YouTube
+    2. Upload & summarize via TwelveLabs
+    3. Return the full text
+    """
+    print("🎥 Downloading:", youtube_url)
+    downloaded_path = download_video(youtube_url, output_path="downloads")
+    print("🧠 Summarizing:", downloaded_path)
+    return summarize_video(downloaded_path)
 
 @app.post("/log")
 def log():
     link = get_youtube_link()
     print("YT_LINK", link) 
-    return {"url": link}
+    try:
+        summary_text = summarize_youtube_video(link)
+        print(summary_text)
+        return jsonify({
+            "url": link,
+            "summary": summary_text
+        })
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
