@@ -30,7 +30,7 @@ This repository contains the project developed for HackThe6ix hackathon. The pro
   - 12 Labs
   - 11 Labs
   - Ribbon AI
-- Install FFmpeg 
+- FFmpeg 
   - Windows: Follow https://phoenixnap.com/kb/ffmpeg-windows
   - Mac: Follow https://phoenixnap.com/kb/ffmpeg-mac
 
