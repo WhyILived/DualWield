@@ -1,0 +1,17 @@
+{
+  "name": "YT Logger",
+  "manifest_version": 3,
+  "version": "0.0.2",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "http://127.0.0.1:5001/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
