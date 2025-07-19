@@ -17,8 +17,24 @@ except ImportError:
     PYGAME_AVAILABLE = False
     print("Pygame not available, falling back to system player")
 
-# Load environment variables
-load_dotenv()
+# Load environment variables from root directory
+import os
+from pathlib import Path
+
+# Get the project root directory (two levels up from backend)
+project_root = Path(__file__).parent.parent
+env_path = project_root / '.env'
+print(f"🔍 Loading .env from: {env_path}")
+print(f"📁 File exists: {env_path.exists()}")
+
+# Load the .env file
+load_dotenv(env_path)
+
+# Debug: Check what environment variables are loaded
+print(f"🔑 Environment variables after loading:")
+for key, value in os.environ.items():
+    if 'API_KEY' in key:
+        print(f"  {key}: {value[:10]}..." if value else f"  {key}: None")
 
 class TTSService:
     def __init__(self):
@@ -35,7 +51,13 @@ class TTSService:
             pygame.mixer.init()
         
         if not self.api_key:
-            print("Warning: ELEVEN_LABS_API_KEY not found in environment variables")
+            print(f"Warning: ELEVEN_LABS_API_KEY not found in environment variables")
+            print(f"Looking for .env file at: {env_path}")
+            print(f"File exists: {env_path.exists()}")
+            if env_path.exists():
+                print(f"File contents: {env_path.read_text()[:100]}...")
+        else:
+            print(f"✅ Found ELEVEN_LABS_API_KEY: {self.api_key[:10]}...")
     
     def initialize(self):
         """Initialize the TTS service"""
@@ -205,7 +227,7 @@ class TTSService:
             print(f"❌ Error stopping TTS: {e}")
             return False
     
-    def is_speaking(self) -> bool:
+    def get_speaking_status(self) -> bool:
         """Check if currently speaking"""
         return self.is_speaking
 

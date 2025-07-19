@@ -18,7 +18,7 @@ def stop() -> bool:
 
 def is_speaking() -> bool:
     """Check if currently speaking"""
-    return tts.is_speaking()
+    return tts.get_speaking_status()
 
 # Initialize TTS when module is imported
 try:
