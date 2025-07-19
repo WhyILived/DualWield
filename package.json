@@ -1,0 +1,23 @@
+{
+  "name": "ht6ix-ai-teaching-bot",
+  "version": "1.0.0",
+  "description": "AI Teaching Bot for Gaming Downtime",
+  "main": "backend/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewidRizk/hackthe6ith.git"
+  },
+  "keywords": ["ai", "teaching", "gaming", "overlay"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^36.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+} 
