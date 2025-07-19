@@ -8,3 +8,5 @@ requests
 python-multipart
 aiofiles
 flask
+yt_dlp
+twelvelabs

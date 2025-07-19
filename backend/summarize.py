@@ -5,7 +5,7 @@ from twelvelabs import TwelveLabs
 from twelvelabs.models.task import Task
 
 # ======= Config =======
-API_KEY = ""
+API_KEY = "tlk_3WMDD6H1KM6HTQ2847RF73VWDCGY"
 ENGINE = "pegasus1.2"
 LANGUAGE = "en"
 INDEX_NAME = "chatgpt_index"
