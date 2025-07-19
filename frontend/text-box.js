@@ -119,10 +119,4 @@ class TextBox {
     showStatus(status) {
         this.addMessage(`🔄 System Status: ${status}`, 'info');
     }
-    
-    // Method to show audio level
-    showAudioLevel(level) {
-        const levelText = level > 0.3 ? 'High' : level > 0.1 ? 'Medium' : 'Low';
-        this.addMessage(`🎵 Audio Level: ${levelText} (${(level * 100).toFixed(1)}%)`, 'info');
-    }
 } 

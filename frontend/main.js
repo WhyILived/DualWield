@@ -29,9 +29,6 @@ class HT6ixApp {
         // Set up keyboard shortcuts
         this.setupKeyboardShortcuts();
         
-        // Start periodic updates
-        this.startPeriodicUpdates();
-        
         console.log('HT6ix AI Teaching Bot frontend initialized');
     }
     
@@ -57,25 +54,6 @@ class HT6ixApp {
                 event.preventDefault();
             }
         });
-    }
-    
-    startPeriodicUpdates() {
-        // Update audio level display every 2 seconds
-        setInterval(() => {
-            if (this.audioVisualizer && this.textBox) {
-                const audioLevel = this.audioVisualizer.getAudioLevel();
-                if (audioLevel > 0.05) { // Only show if there's significant audio
-                    this.textBox.showAudioLevel(audioLevel);
-                }
-            }
-        }, 2000);
-        
-        // Periodic status updates
-        setInterval(() => {
-            if (this.textBox) {
-                this.textBox.showStatus(`View: ${this.currentView}, Focus: ${this.isVisualizerFocused ? 'On' : 'Off'}`);
-            }
-        }, 10000);
     }
     
     toggleViewMode() {
