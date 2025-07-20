@@ -1,4 +1,4 @@
-# ribbon_interview_simple.py
+# ribbon_interview_module.py
 import requests
 import json
 import os

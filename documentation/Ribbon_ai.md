@@ -14,6 +14,8 @@ Services used:
 - `GET /interviews/{id}` → Check status and retrieve transcript
 *Other API Enpoints were also used in testing / debugging scripts! (mainly GET /interviews)
 
+### For dynamically-appearing data that appears on the Ribbon dashboard, we used Selenium to scrape the numbers and save them (to be fed along with the transcript into gemini for advanced feedback) 
+
 ## 🔧 How it Works
 Excerpt from `ribbon_interview_module.py`:
 ```python
