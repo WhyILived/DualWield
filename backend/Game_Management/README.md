@@ -2,14 +2,20 @@
 This script uses OCR (Optical Character Recognition) to detect when the "Combat Report" appears on screen in Valorant, signaling that the player has died. It logs both:
 
 ✅ When the combat report appears (you died)
+
 ❎ When it disappears (you respawn or round ends)
 
 # 📦 Features
 🔍 Real-time OCR using Tesseract
+
 🎯 Scans only a small screen region for performance
+
 🕒 Logs precise timestamps of death and respawn
+
 🔁 Loop runs until user exits
+
 💻 No interference with game process — safe and ban-free
+
 ## 🧰 Prerequisites
 
 ### 1. Python (3.8+ Recommended)
@@ -90,3 +96,6 @@ In Valorant, the "Combat Report" appears as soon as you're eliminated. It's a co
 - Use OpenCV template matching instead of or alongside OCR
 
 Let me know if you want this turned into a README.md file directly, or want to add multiple script modes (OCR-only, template-only, hybrid).
+=======
+
+💻 No interference with game process — safe and ban-free
