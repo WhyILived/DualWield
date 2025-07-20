@@ -5,7 +5,7 @@ import time
 import os
 
 # === SETTINGS ===
-monitor = {"top": 350, "left": 1450, "width": 500, "height": 500}  # initial region
+monitor = {"top": 450, "left": 2050, "width": 500, "height": 500}  # initial region
 step = 5  # pixels moved/resized per key press
 
 def draw_info(frame, region):

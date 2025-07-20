@@ -75,7 +75,7 @@ body {
     background-color: rgba(0, 170, 255, 0.9);
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
-    display: flex;
+    display: none; /* Hidden by default, shown when buffer has content */
     align-items: center;
     justify-content: center;
     cursor: pointer;

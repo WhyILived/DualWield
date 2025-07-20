@@ -5,7 +5,8 @@ import mss
 import time
 
 # === SETTINGS ===
-OCR_REGION = {"top": 350, "left": 1450, "width": 500, "height": 500}
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+OCR_REGION = {"top": 450, "left": 2050, "width": 500, "height": 500}
 TARGET_PHRASE = "combat report"
 OCR_CONFIG = "--psm 6"
 
