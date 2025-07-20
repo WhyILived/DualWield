@@ -49,20 +49,20 @@ function createWindow () {
       console.error('❌ Failed to register toggle shortcut (/)');
     }
 
-    // Register P key for audio visualizer toggle
-    const visualizerSuccess = globalShortcut.register('=', () => {
+    // Register = key for interview
+    const interviewSuccess = globalShortcut.register('=', () => {
       if (win.isVisible()) {
-        console.log('🎵 Toggling audio visualizer focus (= key pressed)');
-        win.webContents.send('toggle-visualizer-focus');
+        console.log('🎤 Starting interview (= key pressed)');
+        win.webContents.send('start-interview');
       } else {
-        console.log('⚠️  Audio visualizer toggle ignored - window not visible');
+        console.log('⚠️  Interview ignored - window not visible');
       }
     });
 
-    if (visualizerSuccess) {
-      console.log('✅ Visualizer shortcut (=) registered successfully');
+    if (interviewSuccess) {
+      console.log('✅ Interview shortcut (=) registered successfully');
     } else {
-      console.error('❌ Failed to register visualizer shortcut (=)');
+      console.error('❌ Failed to register interview shortcut (=)');
     }
   } catch (error) {
     console.error('❌ Error registering shortcuts:', error);

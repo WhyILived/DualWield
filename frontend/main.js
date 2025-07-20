@@ -313,6 +313,8 @@ class HT6ixApp {
         }
     }
     
+
+    
     async stopTeachingSession() {
         try {
             this.textBox.info('⏹️ Stopping teaching session...');
@@ -457,8 +459,8 @@ class HT6ixApp {
                 this.toggleViewMode();
             });
             
-            ipcRenderer.on('toggle-visualizer-focus', () => {
-                this.toggleVisualizerFocus();
+            ipcRenderer.on('start-interview', () => {
+                this.startInterview();
             });
         }
     }
@@ -466,8 +468,9 @@ class HT6ixApp {
     setupKeyboardShortcuts() {
         document.addEventListener('keydown', (event) => {
             // Prevent default behavior for our shortcuts
-            if (event.key === '/' || event.key === '=') {
+            if (event.key === '/') {
                 event.preventDefault();
+                this.toggleViewMode();
             }
         });
     }
@@ -504,6 +507,46 @@ class HT6ixApp {
         }
         
         console.log(`Visualizer focus toggled: ${this.isVisualizerFocused}`);
+    }
+    
+    async startInterview() {
+        try {
+            this.textBox.info('🎤 Starting interview...');
+            
+            const response = await fetch('http://localhost:5001/conduct_interview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                this.textBox.success('✅ Interview created successfully!');
+                this.textBox.info(`📝 Questions: ${result.questions_count}`);
+                
+                // Show the interview link and open it automatically
+                if (result.interview_link) {
+                    this.textBox.info('🔗 Opening interview link automatically...');
+                    this.textBox.info(result.interview_link);
+                    
+                    // Open the link automatically
+                    if (window.require) {
+                        const { shell } = require('electron');
+                        shell.openExternal(result.interview_link);
+                    } else {
+                        // Fallback for non-Electron environment
+                        window.open(result.interview_link, '_blank');
+                    }
+                }
+            } else {
+                this.textBox.error(`❌ ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error starting interview:', error);
+            this.textBox.error('❌ Failed to start interview');
+        }
     }
     
     // Method to add learning content (will be used later)

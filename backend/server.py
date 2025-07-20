@@ -15,6 +15,7 @@ from downloader import download_video
 from summarize import summarize_video
 from main_vellum import run_vellum_workflow
 from tts_client import speak, stop, is_speaking
+from ribbon_interview_module import conduct_interview
 
 # === DOWNTIME DETECTION SETTINGS ===
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
@@ -377,6 +378,53 @@ def summarize_youtube_video(youtube_url: str) -> str:
     print("🧠 Summarizing:", downloaded_path)
     return summarize_video(downloaded_path)
 
+def extract_quiz_questions():
+    """
+    Extract all quiz questions from the current learning content.
+    
+    Returns:
+        list: List of quiz question strings
+    """
+    if not TEACHING_BOT or not TEACHING_BOT.learning_content:
+        return []
+    
+    questions = []
+    for subtopic in TEACHING_BOT.learning_content.get('subtopic', []):
+        quiz_questions = subtopic.get('quiz_questions', [])
+        print(f"🔍 Quiz questions from subtopic '{subtopic.get('section_title', 'Unknown')}': {quiz_questions}")
+        questions.extend(quiz_questions)
+    
+    # Convert all questions to strings and clean them up
+    cleaned_questions = []
+    for i, question in enumerate(questions):
+        if isinstance(question, dict):
+            # If question is a dict, try to extract the question text
+            if 'question_text' in question:
+                cleaned_questions.append(str(question['question_text']))
+            elif 'question' in question:
+                cleaned_questions.append(str(question['question']))
+            elif 'text' in question:
+                cleaned_questions.append(str(question['text']))
+            else:
+                # If it's a dict but we don't know the structure, convert to string
+                cleaned_questions.append(str(question))
+        elif isinstance(question, str):
+            cleaned_questions.append(question)
+        else:
+            # Convert any other type to string
+            cleaned_questions.append(str(question))
+    
+    print(f"🧹 Cleaned {len(cleaned_questions)} questions: {cleaned_questions[:3]}...")  # Show first 3
+    return cleaned_questions
+
+# Additional info for the interview - you can edit this variable to customize the AI interviewer's behavior
+INTERVIEW_ADDITIONAL_INFO = """
+You are an AI interviewer conducting a study session recap. 
+Ask the user about what they learned from their study session.
+Be quick and to the point. Dont ask too much follow-up questions based on their responses.
+Let them answer the questions in their own words and just let them know if they are correct or not. Be quick and to the point.
+"""
+
 @app.post("/log")
 def log():
     global CONTENT_PROCESSING_ACTIVE
@@ -633,6 +681,48 @@ def get_tts_message():
         return jsonify({
             "active": False,
             "message": f"Error getting TTS message: {str(e)}"
+        })
+
+@app.post("/conduct_interview")
+def conduct_interview_endpoint():
+    """
+    Conduct an interview using quiz questions from the learning content.
+    """
+    try:
+        # Extract quiz questions
+        questions = extract_quiz_questions()
+        
+        if not questions:
+            return jsonify({
+                "success": False,
+                "message": "No quiz questions available. Please load content first."
+            })
+        
+        print(f"🎤 Starting interview with {len(questions)} questions...")
+        print(f"📝 Questions: {questions}")
+        print(f"📝 Question types: {[type(q).__name__ for q in questions[:5]]}")  # Show types of first 5
+        
+        # Conduct the interview
+        interview_link, transcript = conduct_interview(questions, INTERVIEW_ADDITIONAL_INFO)
+        
+        if interview_link:
+            return jsonify({
+                "success": True,
+                "message": "Interview created successfully",
+                "interview_link": interview_link,
+                "transcript": transcript,
+                "questions_count": len(questions)
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "message": "Failed to create interview"
+            })
+            
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "message": f"Error conducting interview: {str(e)}"
         })
 
 if __name__ == "__main__":
