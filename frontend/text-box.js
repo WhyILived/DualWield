@@ -77,9 +77,11 @@ class TextBox {
             messageElement.className = `message ${message.type}`;
             
             if (message.type === 'tts') {
+                // Bold the "Section:" text in TTS messages
+                const formattedText = message.text.replace(/^(Section:)/, '<strong>$1</strong>');
                 messageElement.innerHTML = `
                     <span class="message-arrow">→</span>
-                    <span class="message-text">${message.text}</span>
+                    <span class="message-text">${formattedText}</span>
                 `;
             } else {
                 messageElement.innerHTML = `
