@@ -50,6 +50,23 @@ class TextBox {
         this.render();
     }
     
+    addTTSMessage(text) {
+        const message = {
+            text: text,
+            type: 'tts',
+            timestamp: new Date().toLocaleTimeString()
+        };
+        
+        this.messages.push(message);
+        
+        // Keep only the last maxMessages
+        if (this.messages.length > this.maxMessages) {
+            this.messages.shift();
+        }
+        
+        this.render();
+    }
+    
     render() {
         if (!this.content) return;
         
@@ -58,10 +75,21 @@ class TextBox {
         this.messages.forEach(message => {
             const messageElement = document.createElement('div');
             messageElement.className = `message ${message.type}`;
-            messageElement.innerHTML = `
-                <span class="message-time">[${message.timestamp}]</span>
-                <span class="message-text">${message.text}</span>
-            `;
+            
+            if (message.type === 'tts') {
+                // Bold the "Section:" text in TTS messages
+                const formattedText = message.text.replace(/^(Section:)/, '<strong>$1</strong>');
+                messageElement.innerHTML = `
+                    <span class="message-arrow">→</span>
+                    <span class="message-text">${formattedText}</span>
+                `;
+            } else {
+                messageElement.innerHTML = `
+                    <span class="message-arrow">→</span>
+                    <span class="message-text">${message.text}</span>
+                `;
+            }
+            
             this.content.appendChild(messageElement);
         });
         

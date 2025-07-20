@@ -12,6 +12,8 @@ class HT6ixApp {
         this.teachingActive = false;
         this.bufferCheckInterval = null;
         this.logCheckInterval = null;
+        this.ttsCheckInterval = null;
+        this.lastTTSMessage = '';
         
         this.init();
     }
@@ -47,6 +49,9 @@ class HT6ixApp {
         
         // Start log monitoring
         this.startLogMonitoring();
+        
+        // Start TTS monitoring
+        this.startTTSMonitoring();
         
         console.log('HT6ix AI Teaching Bot frontend initialized');
     }
@@ -391,6 +396,13 @@ class HT6ixApp {
         this.checkLogStatus();
     }
     
+    // Method to display TTS messages
+    displayTTSMessage(text) {
+        if (this.textBox) {
+            this.textBox.addTTSMessage(text);
+        }
+    }
+    
     startLogMonitoring() {
         // Check log status every 3 seconds
         this.logCheckInterval = setInterval(() => {
@@ -405,6 +417,34 @@ class HT6ixApp {
         if (this.logCheckInterval) {
             clearInterval(this.logCheckInterval);
             this.logCheckInterval = null;
+        }
+    }
+    
+    async checkTTSMessage() {
+        try {
+            const response = await fetch('http://localhost:5001/tts_message');
+            const result = await response.json();
+            
+            if (result.active && result.message !== this.lastTTSMessage) {
+                this.lastTTSMessage = result.message;
+                this.displayTTSMessage(result.message);
+            }
+        } catch (error) {
+            console.error('Error checking TTS message:', error);
+        }
+    }
+    
+    startTTSMonitoring() {
+        // Check TTS message every 1 second
+        this.ttsCheckInterval = setInterval(() => {
+            this.checkTTSMessage();
+        }, 1000);
+    }
+    
+    stopTTSMonitoring() {
+        if (this.ttsCheckInterval) {
+            clearInterval(this.ttsCheckInterval);
+            this.ttsCheckInterval = null;
         }
     }
     

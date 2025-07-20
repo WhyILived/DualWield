@@ -143,6 +143,9 @@ class TeachingBot:
         else:
             reading_text = bullet_point
         
+        # Send TTS message to frontend
+        self.send_tts_message(reading_text)
+        
         # Speak the content
         success = speak(reading_text)
         
@@ -157,6 +160,12 @@ class TeachingBot:
         else:
             print(f"❌ Failed to speak bullet point")
             return False
+    
+    def send_tts_message(self, text):
+        """Send TTS message to frontend (placeholder for now)"""
+        # This would ideally send a WebSocket message or use Server-Sent Events
+        # For now, we'll just print it and the frontend can poll for updates
+        print(f"🎤 TTS: {text}")
     
     def start_teaching_session(self):
         """Start teaching session"""
@@ -573,6 +582,57 @@ def teaching_status():
         return jsonify({
             "active": False,
             "message": f"Error getting teaching status: {str(e)}"
+        })
+
+@app.get("/tts_message")
+def get_tts_message():
+    """
+    Returns the current TTS message being spoken.
+    """
+    global TEACHING_BOT, TEACHING_ACTIVE
+    
+    if not TEACHING_BOT or not TEACHING_ACTIVE:
+        return jsonify({
+            "active": False,
+            "message": "No teaching session active"
+        })
+    
+    try:
+        # Get current bullet point being read
+        if TEACHING_BOT.current_bullet_index < len(TEACHING_BOT.unread_bullet_points):
+            bullet_data = TEACHING_BOT.unread_bullet_points[TEACHING_BOT.current_bullet_index]
+            section_title = bullet_data['section_title']
+            bullet_point = bullet_data['bullet_point']
+            
+            # Check if this is a new section
+            current_section = None
+            if TEACHING_BOT.current_bullet_index > 0:
+                prev_bullet = TEACHING_BOT.unread_bullet_points[TEACHING_BOT.current_bullet_index - 1]
+                current_section = prev_bullet['section_title']
+            
+            is_new_section = (section_title != current_section)
+            
+            if is_new_section:
+                reading_text = f"Section: {section_title}. {bullet_point}"
+            else:
+                reading_text = bullet_point
+            
+            return jsonify({
+                "active": True,
+                "message": reading_text,
+                "section": section_title,
+                "is_new_section": is_new_section
+            })
+        else:
+            return jsonify({
+                "active": False,
+                "message": "All content has been read"
+            })
+        
+    except Exception as e:
+        return jsonify({
+            "active": False,
+            "message": f"Error getting TTS message: {str(e)}"
         })
 
 if __name__ == "__main__":
