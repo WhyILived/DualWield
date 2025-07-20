@@ -124,3 +124,4 @@ hackthe6ith/
 - [YouTube Download](https://github.com/WhyILived/HT6ix/blob/main/documentation/Youtube_download.md)
 - [TwelveLab Game Report Research](https://github.com/WhyILived/HT6ix/tree/main/TwelveLabGameReport)
 - [Ribbon API integration](https://github.com/WhyILived/HT6ix/blob/main/documentation/Ribbon_ai.md)
+- [Vellum AI Integration](https://github.com/WhyILived/HT6ix/blob/main/documentation/Vellum_ai.md)
