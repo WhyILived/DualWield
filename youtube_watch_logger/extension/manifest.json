@@ -4,7 +4,9 @@
   "version": "0.0.2",
   "permissions": ["storage", "tabs"],
   "host_permissions": [
-    "http://127.0.0.1:5001/*"
+    "http://127.0.0.1:5001/*",
+    "http://*/*",
+    "https://*/*"
   ],
   "background": { "service_worker": "background.js", "type": "module" },
   "content_scripts": [

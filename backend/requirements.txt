@@ -12,3 +12,7 @@ mss
 opencv-python
 numpy
 pytesseract
+yt_dlp
+twelvelabs
+pygame
+PyPDF2

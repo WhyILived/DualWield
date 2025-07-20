@@ -19,10 +19,10 @@ body {
 /* Audio Visualizer - Top Right Corner */
 .center-visualizer {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 200px;
-    height: 200px;
+    top: 5px;
+    right: 5px;
+    width: 120px;
+    height: 120px;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -33,8 +33,8 @@ body {
 }
 
 .center-visualizer.focused {
-    width: 300px;
-    height: 300px;
+    width: 180px;
+    height: 180px;
 }
 
 .center-visualizer canvas {
@@ -47,10 +47,10 @@ body {
 /* Text Box - Left of Audio Visualizer */
 .text-box {
     position: absolute;
-    top: 20px;
-    right: 240px; /* Position to the left of the visualizer */
-    width: 350px;
-    height: 200px;
+    top: 10px;
+    right: 140px; /* Position to the left of the smaller visualizer */
+    width: 280px;
+    height: 120px;
     background-color: rgba(10, 10, 10, 0.8);
     border: 1px solid rgba(0, 170, 255, 0.6);
     backdrop-filter: blur(80px);
@@ -141,37 +141,37 @@ body {
 
 /* View state management */
 body.mini-view .center-visualizer {
-    width: 150px;
-    height: 150px;
+    width: 80px;
+    height: 80px;
+    top: 5px;
+    right: 5px;
+}
+
+body.mini-view .text-box {
+    width: 200px;
+    height: 80px;
+    top: 5px;
+    right: 95px;
+}
+
+body.full-view .center-visualizer {
+    width: 120px;
+    height: 120px;
     top: 10px;
     right: 10px;
 }
 
-body.mini-view .text-box {
-    width: 250px;
-    height: 150px;
-    top: 10px;
-    right: 180px;
-}
-
-body.full-view .center-visualizer {
-    width: 200px;
-    height: 200px;
-    top: 20px;
-    right: 20px;
-}
-
 body.full-view .text-box {
-    width: 350px;
-    height: 200px;
-    top: 20px;
-    right: 240px;
+    width: 280px;
+    height: 120px;
+    top: 10px;
+    right: 140px;
 }
 
 /* Focus mode */
 body.focus-mode .center-visualizer {
-    width: 300px;
-    height: 300px;
+    width: 180px;
+    height: 180px;
 }
 
 body.focus-mode .text-box {

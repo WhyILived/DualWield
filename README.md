@@ -32,7 +32,15 @@ This repository contains the project developed for HackThe6ix hackathon. The pro
   - Ribbon AI
 - FFmpeg 
   - Windows: Follow https://phoenixnap.com/kb/ffmpeg-windows
+  - Also direct download link here: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
   - Mac: Follow https://phoenixnap.com/kb/ffmpeg-mac
+
+    - After downloading the zip, extract it
+    -get into the bin and copy the directory, ex - C:\Users\shadh\Downloads\ffmpeg-7.1.1-essentials_build\ffmpeg-7.1.1-essentials_build\bin
+    - search and open "edit the system environmental varibales" in windows search
+    -click on environmental variables in the bottom
+    -edit path in system variables
+    -add the path 
 
 ### Installation
 
