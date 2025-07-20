@@ -16,3 +16,4 @@ yt_dlp
 twelvelabs
 pygame
 PyPDF2
+seleniumbase
