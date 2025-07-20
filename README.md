@@ -4,19 +4,9 @@ A collaborative project for HackThe6ix hackathon.
 
 ## 🚀 About
 
-This repository contains the project developed for HackThe6ix hackathon. The project aims to [describe your project goals here].
+This repository contains the project developed for HackThe6ix hackathon.
 
-## 📋 Features
-
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
-
-## 🛠️ Technologies Used
-
-- [Technology 1]
-- [Technology 2]
-- [Technology 3]
+Are you a gamer who needs to *truly* lock in? Here’s your chance to dual‑wield studying and gaming, turning those brief mid‑match downtimes into productive study bursts.
 
 ## 🚀 Getting Started
 
@@ -121,6 +111,7 @@ This project is licensed under the [LICENSE NAME] - see the [LICENSE.md](LICENSE
 - Mushfiqur Shadhin
 - Ammar Mohamed
 - Andro Rizk
+- Sammy Hawari
 
 ## 📞 Contact
 
