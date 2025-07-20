@@ -139,6 +139,9 @@ class HT6ixApp {
         console.log('🔘 Circular button clicked!');
         this.textBox.success('Committing buffer to log...');
         
+        // Hide button immediately for better UX
+        this.hideBufferButton();
+        
         // Commit buffer to log
         this.commitBuffer();
     }
@@ -156,13 +159,17 @@ class HT6ixApp {
             
             if (result.success) {
                 this.textBox.success('✅ Buffer committed to log successfully!');
-                this.updateButtonVisibility(true); // Hide button
+                // Button already hidden in handleButtonClick()
             } else {
                 this.textBox.error('❌ Buffer is empty, nothing to commit');
+                // Show button again if commit failed
+                this.showBufferButtonIfBufferHasContent();
             }
         } catch (error) {
             console.error('Error committing buffer:', error);
             this.textBox.error('❌ Failed to commit buffer');
+            // Show button again if commit failed
+            this.showBufferButtonIfBufferHasContent();
         }
     }
     
@@ -201,6 +208,39 @@ class HT6ixApp {
         }
     }
     
+    hideBufferButton() {
+        if (this.circularButton) {
+            this.circularButton.style.display = 'none';
+        }
+    }
+    
+    showBufferButtonIfBufferHasContent() {
+        // Check if buffer has content and show button if it does
+        this.checkBufferStatus();
+    }
+    
+    async clearBuffer() {
+        try {
+            // Clear buffer by committing it to log (which clears it)
+            const response = await fetch('http://localhost:5001/commit_buffer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                console.log('✅ Buffer cleared successfully');
+            } else {
+                console.log('ℹ️ Buffer was already empty');
+            }
+        } catch (error) {
+            console.error('Error clearing buffer:', error);
+        }
+    }
+    
     startBufferMonitoring() {
         // Check buffer status every 2 seconds
         this.bufferCheckInterval = setInterval(() => {
@@ -224,6 +264,11 @@ class HT6ixApp {
         if (this.teachingActive) {
             this.stopTeachingSession();
         } else {
+            // Hide button immediately for better UX
+            this.hideTeachingButton();
+            // Also hide buffer button and clear buffer since teaching is starting
+            this.hideBufferButton();
+            this.clearBuffer();
             this.startTeachingSession();
         }
     }
@@ -249,13 +294,17 @@ class HT6ixApp {
                 this.textBox.info(`📖 Bullet points: ${result.bullet_points}`);
                 this.textBox.info('🛑 Content processing stopped');
                 this.updateTeachingButtonState(true);
-                this.hideTeachingButton(); // Hide button when teaching starts
+                // Button already hidden in handleTeachingButtonClick()
             } else {
                 this.textBox.error(`❌ ${result.message}`);
+                // Show button again if teaching failed
+                this.showTeachingButtonIfLogHasContent();
             }
         } catch (error) {
             console.error('Error starting teaching session:', error);
             this.textBox.error('❌ Failed to start teaching session');
+            // Show button again if teaching failed
+            this.showTeachingButtonIfLogHasContent();
         }
     }
     
