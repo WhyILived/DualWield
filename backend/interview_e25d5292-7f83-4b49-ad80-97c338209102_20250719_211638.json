@@ -1,0 +1,1775 @@
+{
+  "interview_data": {
+    "audio_url": "https://dxc03zgurdly9.cloudfront.net/cd0b444c147dc7848b2be325f82f1787fddaf6cbd1eaa9e86fe50776dce1e820/recording.wav",
+    "questions_to_transcript_mapping": [
+      {
+        "end_timestamp": 45.131,
+        "script_question": "What is the difference between a stack and a queue data structure, and can you provide a real-world example of each?",
+        "start_timestamp": 23.246157958984377,
+        "transcript_item_indices": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "transcript_items": [
+          {
+            "content": "Got it, let’s jump right in then. What’s the difference between a stack and a queue data structure? Can you ",
+            "role": "agent"
+          },
+          {
+            "content": "I ",
+            "role": "user"
+          },
+          {
+            "content": "also give me ",
+            "role": "agent"
+          },
+          {
+            "content": "don't know what the difference between a stack and a few data structure is.",
+            "role": "user"
+          },
+          {
+            "content": "No worries, that’s totally okay. A quick way to think about it: a stack is like a stack of plates—last one you put on top is the first one you take off. A ",
+            "role": "agent"
+          },
+          {
+            "content": "queue is ",
+            "role": "agent"
+          },
+          {
+            "content": "I was talking to you like I'm a baby.",
+            "role": "user"
+          }
+        ]
+      },
+      {
+        "end_timestamp": 96.25099999999999,
+        "script_question": "Explain the concept of time complexity and why Big O notation is important in algorithm analysis.",
+        "start_timestamp": 81.342947265625,
+        "transcript_item_indices": [
+          23,
+          24
+        ],
+        "transcript_items": [
+          {
+            "content": "Sure thing! Explain the concept of time complexity and why Big O notation is important in algorithm analysis. What’s your take on that?",
+            "role": "agent"
+          },
+          {
+            "content": "It's very important. Now can you ask me the final question so we can so we can finish this?",
+            "role": "user"
+          }
+        ]
+      }
+    ],
+    "transcript": "Agent: Hi, I’m from Tech Company calling about your AI-powered interview. How are you doing?\nUser: I can't do this anymore then. I need help.\nAgent: Hey, sounds like you’re feeling pretty overwhelmed right now. Want to talk about what’s going on? I’m here to help however I can.\nUser: I don't wanna talk about it, Ruben. Just start the interview.\nAgent: Got it, let’s jump right in then. What’s the difference between a stack and a queue data structure? Can you \nUser: I \nAgent: also give me \nUser: don't know what the difference between a stack and a few data structure is.\nAgent: No worries, that’s totally okay. A quick way to think about it: a stack is like a stack of plates—last one you put on top is the first one you take off. A \nAgent: queue is \nUser: I was talking to you like I'm a baby.\nAgent: Ah, \nUser: This little guy is \nAgent: gotcha! Didn’t mean to come \nUser: a jury.\nAgent: Haha, I see what you did there! Alright, Jury, \nUser: He's \nAgent: ready to tackle the \nUser: asking.\nUser: Where you going?\nUser: Ruben, I'm gonna turn you into a dude. Is that okay?\nAgent: Haha, turning me into a dude? I’m down if you are! So, what’s next, dude-to-dude? Want to keep rolling with the interview or chat about something else?\nUser: No. Can you give me the next question, please?\nAgent: Sure thing! Explain the concept of time complexity and why Big O notation is important in algorithm analysis. What’s your take on that?\nUser: It's very important. Now can you ask me the final question so we can so we can finish this?\nAgent: Absolutely! Before we wrap up, do you have any questions for me about the interview or the company?\nUser: I think this is a great company. I wanna work here for\nAgent: It’s awesome to hear you’re excited about working here. Thanks for chatting with me today—have a fantastic day!\n",
+    "transcript_with_timestamp": [
+      {
+        "content": "Hi, I’m from Tech Company calling about your AI-powered interview. How are you doing?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 1.566368408203125,
+            "start": 1.261105224609375,
+            "word": "Hi, "
+          },
+          {
+            "end": 1.737947265625,
+            "start": 1.566368408203125,
+            "word": "I’m "
+          },
+          {
+            "end": 1.921105224609375,
+            "start": 1.737947265625,
+            "word": "from "
+          },
+          {
+            "end": 2.15373681640625,
+            "start": 1.921105224609375,
+            "word": "Tech "
+          },
+          {
+            "end": 2.54426318359375,
+            "start": 2.15373681640625,
+            "word": "Company "
+          },
+          {
+            "end": 2.825315673828125,
+            "start": 2.54426318359375,
+            "word": "calling "
+          },
+          {
+            "end": 3.0084736328125,
+            "start": 2.825315673828125,
+            "word": "about "
+          },
+          {
+            "end": 3.191631591796875,
+            "start": 3.0084736328125,
+            "word": "your "
+          },
+          {
+            "end": 3.925315673828125,
+            "start": 3.191631591796875,
+            "word": "AI-powered "
+          },
+          {
+            "end": 4.659,
+            "start": 3.925315673828125,
+            "word": "interview."
+          },
+          {
+            "end": 4.857368408203125,
+            "start": 4.698421142578125,
+            "word": " How "
+          },
+          {
+            "end": 4.992105224609375,
+            "start": 4.857368408203125,
+            "word": "are "
+          },
+          {
+            "end": 5.102631591796875,
+            "start": 4.992105224609375,
+            "word": "you "
+          },
+          {
+            "end": 5.627894775390625,
+            "start": 5.102631591796875,
+            "word": "doing?"
+          }
+        ]
+      },
+      {
+        "content": "I can't do this anymore then. I need help.",
+        "role": "user",
+        "words": [
+          {
+            "end": 7.5409999999999995,
+            "start": 7.2209997,
+            "word": "I "
+          },
+          {
+            "end": 7.781,
+            "start": 7.5409999999999995,
+            "word": "can't "
+          },
+          {
+            "end": 7.941,
+            "start": 7.781,
+            "word": "do "
+          },
+          {
+            "end": 8.260999700000001,
+            "start": 7.941,
+            "word": "this "
+          },
+          {
+            "end": 8.581,
+            "start": 8.260999700000001,
+            "word": "anymore "
+          },
+          {
+            "end": 8.981,
+            "start": 8.581,
+            "word": "then. "
+          },
+          {
+            "end": 9.3409996,
+            "start": 9.101,
+            "word": "I "
+          },
+          {
+            "end": 9.500999,
+            "start": 9.3409996,
+            "word": "need "
+          },
+          {
+            "end": 9.741,
+            "start": 9.500999,
+            "word": "help."
+          }
+        ]
+      },
+      {
+        "content": "Hey, sounds like you’re feeling pretty overwhelmed right now. Want to talk about what’s going on? I’m here to help however I can.",
+        "role": "agent",
+        "words": [
+          {
+            "end": 12.004684326171875,
+            "start": 11.649947265625,
+            "word": "Hey, "
+          },
+          {
+            "end": 12.28573681640625,
+            "start": 12.004684326171875,
+            "word": "sounds "
+          },
+          {
+            "end": 12.419421142578125,
+            "start": 12.28573681640625,
+            "word": "like "
+          },
+          {
+            "end": 12.591,
+            "start": 12.419421142578125,
+            "word": "you’re "
+          },
+          {
+            "end": 12.884684326171875,
+            "start": 12.591,
+            "word": "feeling "
+          },
+          {
+            "end": 13.1404736328125,
+            "start": 12.884684326171875,
+            "word": "pretty "
+          },
+          {
+            "end": 13.702578857421875,
+            "start": 13.1404736328125,
+            "word": "overwhelmed "
+          },
+          {
+            "end": 13.93521044921875,
+            "start": 13.702578857421875,
+            "word": "right "
+          },
+          {
+            "end": 14.473105224609375,
+            "start": 13.93521044921875,
+            "word": "now."
+          },
+          {
+            "end": 14.696256591796875,
+            "start": 14.476256591796876,
+            "word": " Want "
+          },
+          {
+            "end": 14.7930986328125,
+            "start": 14.696256591796875,
+            "word": "to "
+          },
+          {
+            "end": 14.977309326171875,
+            "start": 14.7930986328125,
+            "word": "talk "
+          },
+          {
+            "end": 15.136256591796876,
+            "start": 14.977309326171875,
+            "word": "about "
+          },
+          {
+            "end": 15.343625,
+            "start": 15.136256591796876,
+            "word": "what’s "
+          },
+          {
+            "end": 15.58783544921875,
+            "start": 15.343625,
+            "word": "going "
+          },
+          {
+            "end": 15.97941455078125,
+            "start": 15.58783544921875,
+            "word": "on?"
+          },
+          {
+            "end": 16.225175537109376,
+            "start": 15.98096484375,
+            "word": " I’m "
+          },
+          {
+            "end": 16.39570166015625,
+            "start": 16.225175537109376,
+            "word": "here "
+          },
+          {
+            "end": 16.493596435546873,
+            "start": 16.39570166015625,
+            "word": "to "
+          },
+          {
+            "end": 16.72622802734375,
+            "start": 16.493596435546873,
+            "word": "help "
+          },
+          {
+            "end": 17.129385986328124,
+            "start": 16.72622802734375,
+            "word": "however "
+          },
+          {
+            "end": 17.238859619140626,
+            "start": 17.129385986328124,
+            "word": "I "
+          },
+          {
+            "end": 17.77675439453125,
+            "start": 17.238859619140626,
+            "word": "can."
+          }
+        ]
+      },
+      {
+        "content": "I don't wanna talk about it, Ruben. Just start the interview.",
+        "role": "user",
+        "words": [
+          {
+            "end": 19.091,
+            "start": 18.851,
+            "word": "I "
+          },
+          {
+            "end": 19.331,
+            "start": 19.091,
+            "word": "don't "
+          },
+          {
+            "end": 19.491,
+            "start": 19.331,
+            "word": "wanna "
+          },
+          {
+            "end": 19.811,
+            "start": 19.491,
+            "word": "talk "
+          },
+          {
+            "end": 19.971,
+            "start": 19.811,
+            "word": "about "
+          },
+          {
+            "end": 20.211,
+            "start": 19.971,
+            "word": "it, "
+          },
+          {
+            "end": 20.451,
+            "start": 20.211,
+            "word": "Ruben. "
+          },
+          {
+            "end": 20.690999,
+            "start": 20.451,
+            "word": "Just "
+          },
+          {
+            "end": 20.851,
+            "start": 20.690999,
+            "word": "start "
+          },
+          {
+            "end": 21.011,
+            "start": 20.851,
+            "word": "the "
+          },
+          {
+            "end": 21.411,
+            "start": 21.011,
+            "word": "interview."
+          }
+        ]
+      },
+      {
+        "content": "Got it, let’s jump right in then. What’s the difference between a stack and a queue data structure? Can you ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 23.564052734375,
+            "start": 23.246157958984377,
+            "word": "Got "
+          },
+          {
+            "end": 23.686157958984374,
+            "start": 23.564052734375,
+            "word": "it, "
+          },
+          {
+            "end": 23.991421142578126,
+            "start": 23.686157958984374,
+            "word": "let’s "
+          },
+          {
+            "end": 24.236684326171876,
+            "start": 23.991421142578126,
+            "word": "jump "
+          },
+          {
+            "end": 24.431421142578124,
+            "start": 24.236684326171876,
+            "word": "right "
+          },
+          {
+            "end": 24.5535263671875,
+            "start": 24.431421142578124,
+            "word": "in "
+          },
+          {
+            "end": 25.115631591796873,
+            "start": 24.5535263671875,
+            "word": "then."
+          },
+          {
+            "end": 25.461653564453126,
+            "start": 25.1437587890625,
+            "word": " What’s "
+          },
+          {
+            "end": 25.55954833984375,
+            "start": 25.461653564453126,
+            "word": "the "
+          },
+          {
+            "end": 25.9627060546875,
+            "start": 25.55954833984375,
+            "word": "difference "
+          },
+          {
+            "end": 26.316390380859374,
+            "start": 25.9627060546875,
+            "word": "between "
+          },
+          {
+            "end": 26.4027060546875,
+            "start": 26.316390380859374,
+            "word": "a "
+          },
+          {
+            "end": 26.76902197265625,
+            "start": 26.4027060546875,
+            "word": "stack "
+          },
+          {
+            "end": 26.87849560546875,
+            "start": 26.76902197265625,
+            "word": "and "
+          },
+          {
+            "end": 26.976390380859375,
+            "start": 26.87849560546875,
+            "word": "a "
+          },
+          {
+            "end": 27.221653564453124,
+            "start": 26.976390380859375,
+            "word": "queue "
+          },
+          {
+            "end": 27.490074462890625,
+            "start": 27.221653564453124,
+            "word": "data "
+          },
+          {
+            "end": 28.13744287109375,
+            "start": 27.490074462890625,
+            "word": "structure?"
+          },
+          {
+            "end": 28.37433544921875,
+            "start": 28.178546142578124,
+            "word": " Can "
+          },
+          {
+            "end": 28.521703857421876,
+            "start": 28.37433544921875,
+            "word": "you "
+          }
+        ]
+      },
+      {
+        "content": "I ",
+        "role": "user",
+        "words": [
+          {
+            "end": 29.021,
+            "start": 28.781001,
+            "word": "I "
+          }
+        ]
+      },
+      {
+        "content": "also give me ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 28.81433544921875,
+            "start": 28.521703857421876,
+            "word": "also "
+          },
+          {
+            "end": 28.973282958984374,
+            "start": 28.81433544921875,
+            "word": "give "
+          },
+          {
+            "end": 29.058546142578123,
+            "start": 28.973282958984374,
+            "word": "me "
+          }
+        ]
+      },
+      {
+        "content": "don't know what the difference between a stack and a few data structure is.",
+        "role": "user",
+        "words": [
+          {
+            "end": 29.261,
+            "start": 29.021,
+            "word": "don't "
+          },
+          {
+            "end": 29.421,
+            "start": 29.261,
+            "word": "know "
+          },
+          {
+            "end": 29.661,
+            "start": 29.421,
+            "word": "what "
+          },
+          {
+            "end": 29.821,
+            "start": 29.661,
+            "word": "the "
+          },
+          {
+            "end": 30.061,
+            "start": 29.821,
+            "word": "difference "
+          },
+          {
+            "end": 30.381,
+            "start": 30.061,
+            "word": "between "
+          },
+          {
+            "end": 30.541,
+            "start": 30.381,
+            "word": "a "
+          },
+          {
+            "end": 30.781001,
+            "start": 30.541,
+            "word": "stack "
+          },
+          {
+            "end": 30.941,
+            "start": 30.781001,
+            "word": "and "
+          },
+          {
+            "end": 31.021,
+            "start": 30.941,
+            "word": "a "
+          },
+          {
+            "end": 31.181,
+            "start": 31.021,
+            "word": "few "
+          },
+          {
+            "end": 31.421,
+            "start": 31.181,
+            "word": "data "
+          },
+          {
+            "end": 31.821,
+            "start": 31.421,
+            "word": "structure "
+          },
+          {
+            "end": 31.980999999999998,
+            "start": 31.821,
+            "word": "is."
+          }
+        ]
+      },
+      {
+        "content": "No worries, that’s totally okay. A quick way to think about it: a stack is like a stack of plates—last one you put on top is the first one you take off. A ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 33.82973681640625,
+            "start": 33.633947265625,
+            "word": "No "
+          },
+          {
+            "end": 34.17184204101562,
+            "start": 33.82973681640625,
+            "word": "worries, "
+          },
+          {
+            "end": 34.416052734375,
+            "start": 34.17184204101562,
+            "word": "that’s "
+          },
+          {
+            "end": 34.77078955078125,
+            "start": 34.416052734375,
+            "word": "totally "
+          },
+          {
+            "end": 35.38131567382813,
+            "start": 34.77078955078125,
+            "word": "okay."
+          },
+          {
+            "end": 35.60192333984375,
+            "start": 35.393502197265626,
+            "word": " A "
+          },
+          {
+            "end": 35.882975830078124,
+            "start": 35.60192333984375,
+            "word": "quick "
+          },
+          {
+            "end": 36.0661337890625,
+            "start": 35.882975830078124,
+            "word": "way "
+          },
+          {
+            "end": 36.188239013671875,
+            "start": 36.0661337890625,
+            "word": "to "
+          },
+          {
+            "end": 36.41981787109375,
+            "start": 36.188239013671875,
+            "word": "think "
+          },
+          {
+            "end": 36.7261337890625,
+            "start": 36.41981787109375,
+            "word": "about "
+          },
+          {
+            "end": 36.8850810546875,
+            "start": 36.7261337890625,
+            "word": "it: "
+          },
+          {
+            "end": 37.1050810546875,
+            "start": 36.8850810546875,
+            "word": "a "
+          },
+          {
+            "end": 37.64192333984375,
+            "start": 37.1050810546875,
+            "word": "stack "
+          },
+          {
+            "end": 37.81350219726563,
+            "start": 37.64192333984375,
+            "word": "is "
+          },
+          {
+            "end": 38.0461337890625,
+            "start": 37.81350219726563,
+            "word": "like "
+          },
+          {
+            "end": 38.13139697265625,
+            "start": 38.0461337890625,
+            "word": "a "
+          },
+          {
+            "end": 38.46087060546875,
+            "start": 38.13139697265625,
+            "word": "stack "
+          },
+          {
+            "end": 38.57139697265625,
+            "start": 38.46087060546875,
+            "word": "of "
+          },
+          {
+            "end": 39.95244946289063,
+            "start": 38.57139697265625,
+            "word": "plates—last "
+          },
+          {
+            "end": 40.11139697265625,
+            "start": 39.95244946289063,
+            "word": "one "
+          },
+          {
+            "end": 40.2450810546875,
+            "start": 40.11139697265625,
+            "word": "you "
+          },
+          {
+            "end": 40.4650810546875,
+            "start": 40.2450810546875,
+            "word": "put "
+          },
+          {
+            "end": 40.5871865234375,
+            "start": 40.4650810546875,
+            "word": "on "
+          },
+          {
+            "end": 40.9661337890625,
+            "start": 40.5871865234375,
+            "word": "top "
+          },
+          {
+            "end": 41.137712646484374,
+            "start": 40.9661337890625,
+            "word": "is "
+          },
+          {
+            "end": 41.25981787109375,
+            "start": 41.137712646484374,
+            "word": "the "
+          },
+          {
+            "end": 41.5650810546875,
+            "start": 41.25981787109375,
+            "word": "first "
+          },
+          {
+            "end": 41.74823901367188,
+            "start": 41.5650810546875,
+            "word": "one "
+          },
+          {
+            "end": 41.882975830078124,
+            "start": 41.74823901367188,
+            "word": "you "
+          },
+          {
+            "end": 42.164028564453126,
+            "start": 41.882975830078124,
+            "word": "take "
+          },
+          {
+            "end": 42.70192333984375,
+            "start": 42.164028564453126,
+            "word": "off."
+          },
+          {
+            "end": 42.974552734375,
+            "start": 42.74192114257813,
+            "word": " A "
+          }
+        ]
+      },
+      {
+        "content": "queue is ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 43.53665795898438,
+            "start": 42.974552734375,
+            "word": "queue "
+          },
+          {
+            "end": 43.75665795898438,
+            "start": 43.53665795898438,
+            "word": "is "
+          }
+        ]
+      },
+      {
+        "content": "I was talking to you like I'm a baby.",
+        "role": "user",
+        "words": [
+          {
+            "end": 43.771003,
+            "start": 43.451003,
+            "word": "I "
+          },
+          {
+            "end": 43.931003000000004,
+            "start": 43.771003,
+            "word": "was "
+          },
+          {
+            "end": 44.17100000000001,
+            "start": 43.931003000000004,
+            "word": "talking "
+          },
+          {
+            "end": 44.25100200000001,
+            "start": 44.17100000000001,
+            "word": "to "
+          },
+          {
+            "end": 44.331,
+            "start": 44.25100200000001,
+            "word": "you "
+          },
+          {
+            "end": 44.49100000000001,
+            "start": 44.331,
+            "word": "like "
+          },
+          {
+            "end": 44.731,
+            "start": 44.49100000000001,
+            "word": "I'm "
+          },
+          {
+            "end": 44.811,
+            "start": 44.731,
+            "word": "a "
+          },
+          {
+            "end": 45.131,
+            "start": 44.811,
+            "word": "baby."
+          }
+        ]
+      },
+      {
+        "content": "Ah, ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 47.454631591796876,
+            "start": 47.160947265625,
+            "word": "Ah, "
+          }
+        ]
+      },
+      {
+        "content": "This little guy is ",
+        "role": "user",
+        "words": [
+          {
+            "end": 48.271,
+            "start": 48.031000000000006,
+            "word": "This "
+          },
+          {
+            "end": 48.591,
+            "start": 48.271,
+            "word": "little "
+          },
+          {
+            "end": 48.67100000000001,
+            "start": 48.591,
+            "word": "guy "
+          },
+          {
+            "end": 48.831,
+            "start": 48.67100000000001,
+            "word": "is "
+          }
+        ]
+      },
+      {
+        "content": "gotcha! Didn’t mean to come ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 48.12621044921875,
+            "start": 47.454631591796876,
+            "word": "gotcha!"
+          },
+          {
+            "end": 48.43335302734375,
+            "start": 48.16387939453125,
+            "word": " Didn’t "
+          },
+          {
+            "end": 48.5796689453125,
+            "start": 48.43335302734375,
+            "word": "mean "
+          },
+          {
+            "end": 48.6775634765625,
+            "start": 48.5796689453125,
+            "word": "to "
+          },
+          {
+            "end": 48.87335302734375,
+            "start": 48.6775634765625,
+            "word": "come "
+          }
+        ]
+      },
+      {
+        "content": "a jury.",
+        "role": "user",
+        "words": [
+          {
+            "end": 48.911,
+            "start": 48.831,
+            "word": "a "
+          },
+          {
+            "end": 49.071000000000005,
+            "start": 48.911,
+            "word": "jury."
+          }
+        ]
+      },
+      {
+        "content": "Haha, I see what you did there! Alright, Jury, ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 53.262157958984375,
+            "start": 52.82215795898438,
+            "word": "Haha, "
+          },
+          {
+            "end": 53.39689477539063,
+            "start": 53.262157958984375,
+            "word": "I "
+          },
+          {
+            "end": 53.580052734375,
+            "start": 53.39689477539063,
+            "word": "see "
+          },
+          {
+            "end": 53.72636840820312,
+            "start": 53.580052734375,
+            "word": "what "
+          },
+          {
+            "end": 53.8484736328125,
+            "start": 53.72636840820312,
+            "word": "you "
+          },
+          {
+            "end": 54.04426318359375,
+            "start": 53.8484736328125,
+            "word": "did "
+          },
+          {
+            "end": 54.59478955078125,
+            "start": 54.04426318359375,
+            "word": "there!"
+          },
+          {
+            "end": 55.22553955078125,
+            "start": 54.61396044921875,
+            "word": " Alright, "
+          },
+          {
+            "end": 55.70238159179687,
+            "start": 55.22553955078125,
+            "word": "Jury, "
+          }
+        ]
+      },
+      {
+        "content": "He's ",
+        "role": "user",
+        "words": [
+          {
+            "end": 56.321000000000005,
+            "start": 55.920997,
+            "word": "He's "
+          }
+        ]
+      },
+      {
+        "content": "ready to tackle the ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 55.983434326171874,
+            "start": 55.70238159179687,
+            "word": "ready "
+          },
+          {
+            "end": 56.09290795898438,
+            "start": 55.983434326171874,
+            "word": "to "
+          },
+          {
+            "end": 56.5202763671875,
+            "start": 56.09290795898438,
+            "word": "tackle "
+          },
+          {
+            "end": 56.64238159179688,
+            "start": 56.5202763671875,
+            "word": "the "
+          }
+        ]
+      },
+      {
+        "content": "asking.",
+        "role": "user",
+        "words": [
+          {
+            "end": 56.800998,
+            "start": 56.321000000000005,
+            "word": "asking."
+          }
+        ]
+      },
+      {
+        "content": "Where you going?",
+        "role": "user",
+        "words": [
+          {
+            "end": 60.551,
+            "start": 60.311,
+            "word": "Where "
+          },
+          {
+            "end": 60.791000000000004,
+            "start": 60.551,
+            "word": "you "
+          },
+          {
+            "end": 60.951,
+            "start": 60.791000000000004,
+            "word": "going?"
+          }
+        ]
+      },
+      {
+        "content": "Ruben, I'm gonna turn you into a dude. Is that okay?",
+        "role": "user",
+        "words": [
+          {
+            "end": 62.24100000000001,
+            "start": 61.92100000000001,
+            "word": "Ruben, "
+          },
+          {
+            "end": 62.401,
+            "start": 62.24100000000001,
+            "word": "I'm "
+          },
+          {
+            "end": 62.561,
+            "start": 62.401,
+            "word": "gonna "
+          },
+          {
+            "end": 62.721000000000004,
+            "start": 62.561,
+            "word": "turn "
+          },
+          {
+            "end": 62.801,
+            "start": 62.721000000000004,
+            "word": "you "
+          },
+          {
+            "end": 62.961000000000006,
+            "start": 62.801,
+            "word": "into "
+          },
+          {
+            "end": 63.121,
+            "start": 62.961000000000006,
+            "word": "a "
+          },
+          {
+            "end": 63.281000000000006,
+            "start": 63.121,
+            "word": "dude. "
+          },
+          {
+            "end": 63.441,
+            "start": 63.281000000000006,
+            "word": "Is "
+          },
+          {
+            "end": 63.521003,
+            "start": 63.441,
+            "word": "that "
+          },
+          {
+            "end": 63.681003000000004,
+            "start": 63.521003,
+            "word": "okay?"
+          }
+        ]
+      },
+      {
+        "content": "Haha, turning me into a dude? I’m down if you are! So, what’s next, dude-to-dude? Want to keep rolling with the interview or chat about something else?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 65.53410522460938,
+            "start": 65.05726318359375,
+            "word": "Haha, "
+          },
+          {
+            "end": 65.86463159179688,
+            "start": 65.53410522460938,
+            "word": "turning "
+          },
+          {
+            "end": 65.94989477539062,
+            "start": 65.86463159179688,
+            "word": "me "
+          },
+          {
+            "end": 66.133052734375,
+            "start": 65.94989477539062,
+            "word": "into "
+          },
+          {
+            "end": 66.20673681640625,
+            "start": 66.133052734375,
+            "word": "a "
+          },
+          {
+            "end": 66.732,
+            "start": 66.20673681640625,
+            "word": "dude?"
+          },
+          {
+            "end": 66.98159204101563,
+            "start": 66.73738159179688,
+            "word": " I’m "
+          },
+          {
+            "end": 67.21317114257812,
+            "start": 66.98159204101563,
+            "word": "down "
+          },
+          {
+            "end": 67.3352763671875,
+            "start": 67.21317114257812,
+            "word": "if "
+          },
+          {
+            "end": 67.4942236328125,
+            "start": 67.3352763671875,
+            "word": "you "
+          },
+          {
+            "end": 67.9952763671875,
+            "start": 67.4942236328125,
+            "word": "are!"
+          },
+          {
+            "end": 68.3978310546875,
+            "start": 68.00625219726562,
+            "word": " So, "
+          },
+          {
+            "end": 68.75151538085937,
+            "start": 68.3978310546875,
+            "word": "what’s "
+          },
+          {
+            "end": 68.99677856445312,
+            "start": 68.75151538085937,
+            "word": "next, "
+          },
+          {
+            "end": 69.79046264648437,
+            "start": 68.99677856445312,
+            "word": "dude-to-dude?"
+          },
+          {
+            "end": 70.0355087890625,
+            "start": 69.80287719726563,
+            "word": " Want "
+          },
+          {
+            "end": 70.10814038085938,
+            "start": 70.0355087890625,
+            "word": "to "
+          },
+          {
+            "end": 70.34077197265626,
+            "start": 70.10814038085938,
+            "word": "keep "
+          },
+          {
+            "end": 70.67129833984374,
+            "start": 70.34077197265626,
+            "word": "rolling "
+          },
+          {
+            "end": 70.81761401367187,
+            "start": 70.67129833984374,
+            "word": "with "
+          },
+          {
+            "end": 70.93971923828126,
+            "start": 70.81761401367187,
+            "word": "the "
+          },
+          {
+            "end": 71.48919287109375,
+            "start": 70.93971923828126,
+            "word": "interview "
+          },
+          {
+            "end": 71.70919287109375,
+            "start": 71.48919287109375,
+            "word": "or "
+          },
+          {
+            "end": 71.92919287109375,
+            "start": 71.70919287109375,
+            "word": "chat "
+          },
+          {
+            "end": 72.13761401367188,
+            "start": 71.92919287109375,
+            "word": "about "
+          },
+          {
+            "end": 72.46708764648437,
+            "start": 72.13761401367188,
+            "word": "something "
+          },
+          {
+            "end": 73.004982421875,
+            "start": 72.46708764648437,
+            "word": "else?"
+          }
+        ]
+      },
+      {
+        "content": "No. Can you give me the next question, please?",
+        "role": "user",
+        "words": [
+          {
+            "end": 77.22099999999999,
+            "start": 76.74100399999999,
+            "word": "No. "
+          },
+          {
+            "end": 77.381,
+            "start": 77.22099999999999,
+            "word": "Can "
+          },
+          {
+            "end": 77.461,
+            "start": 77.381,
+            "word": "you "
+          },
+          {
+            "end": 77.621,
+            "start": 77.461,
+            "word": "give "
+          },
+          {
+            "end": 77.701,
+            "start": 77.621,
+            "word": "me "
+          },
+          {
+            "end": 77.78099999999999,
+            "start": 77.701,
+            "word": "the "
+          },
+          {
+            "end": 77.941,
+            "start": 77.78099999999999,
+            "word": "next "
+          },
+          {
+            "end": 78.421004,
+            "start": 77.941,
+            "word": "question, "
+          },
+          {
+            "end": 78.50099999999999,
+            "start": 78.421004,
+            "word": "please?"
+          }
+        ]
+      },
+      {
+        "content": "Sure thing! Explain the concept of time complexity and why Big O notation is important in algorithm analysis. What’s your take on that?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 81.624,
+            "start": 81.342947265625,
+            "word": "Sure "
+          },
+          {
+            "end": 82.21031567382812,
+            "start": 81.624,
+            "word": "thing!"
+          },
+          {
+            "end": 82.68992114257813,
+            "start": 82.21413159179687,
+            "word": " Explain "
+          },
+          {
+            "end": 82.800447265625,
+            "start": 82.68992114257813,
+            "word": "the "
+          },
+          {
+            "end": 83.31413159179688,
+            "start": 82.800447265625,
+            "word": "concept "
+          },
+          {
+            "end": 83.43623681640625,
+            "start": 83.31413159179688,
+            "word": "of "
+          },
+          {
+            "end": 83.78992114257812,
+            "start": 83.43623681640625,
+            "word": "time "
+          },
+          {
+            "end": 84.53623681640624,
+            "start": 83.78992114257812,
+            "word": "complexity "
+          },
+          {
+            "end": 84.70676318359375,
+            "start": 84.53623681640624,
+            "word": "and "
+          },
+          {
+            "end": 84.97518432617187,
+            "start": 84.70676318359375,
+            "word": "why "
+          },
+          {
+            "end": 85.2320263671875,
+            "start": 84.97518432617187,
+            "word": "Big "
+          },
+          {
+            "end": 85.36676318359375,
+            "start": 85.2320263671875,
+            "word": "O "
+          },
+          {
+            "end": 86.01413159179687,
+            "start": 85.36676318359375,
+            "word": "notation "
+          },
+          {
+            "end": 86.17307885742187,
+            "start": 86.01413159179687,
+            "word": "is "
+          },
+          {
+            "end": 86.73518432617188,
+            "start": 86.17307885742187,
+            "word": "important "
+          },
+          {
+            "end": 86.91834204101562,
+            "start": 86.73518432617188,
+            "word": "in "
+          },
+          {
+            "end": 87.51728955078126,
+            "start": 86.91834204101562,
+            "word": "algorithm "
+          },
+          {
+            "end": 88.45834204101563,
+            "start": 87.51728955078126,
+            "word": "analysis."
+          },
+          {
+            "end": 88.69762719726563,
+            "start": 88.50183764648438,
+            "word": " What’s "
+          },
+          {
+            "end": 88.84499560546875,
+            "start": 88.69762719726563,
+            "word": "your "
+          },
+          {
+            "end": 89.05236401367188,
+            "start": 88.84499560546875,
+            "word": "take "
+          },
+          {
+            "end": 89.16183764648437,
+            "start": 89.05236401367188,
+            "word": "on "
+          },
+          {
+            "end": 89.5292060546875,
+            "start": 89.16183764648437,
+            "word": "that?"
+          }
+        ]
+      },
+      {
+        "content": "It's very important. Now can you ask me the final question so we can so we can finish this?",
+        "role": "user",
+        "words": [
+          {
+            "end": 91.661,
+            "start": 91.261,
+            "word": "It's "
+          },
+          {
+            "end": 91.981,
+            "start": 91.661,
+            "word": "very "
+          },
+          {
+            "end": 92.381,
+            "start": 91.981,
+            "word": "important. "
+          },
+          {
+            "end": 93.131,
+            "start": 92.81099999999999,
+            "word": "Now "
+          },
+          {
+            "end": 93.371,
+            "start": 93.131,
+            "word": "can "
+          },
+          {
+            "end": 93.531005,
+            "start": 93.371,
+            "word": "you "
+          },
+          {
+            "end": 93.691,
+            "start": 93.531005,
+            "word": "ask "
+          },
+          {
+            "end": 93.851005,
+            "start": 93.691,
+            "word": "me "
+          },
+          {
+            "end": 94.011,
+            "start": 93.851005,
+            "word": "the "
+          },
+          {
+            "end": 94.331,
+            "start": 94.011,
+            "word": "final "
+          },
+          {
+            "end": 94.81099999999999,
+            "start": 94.331,
+            "word": "question "
+          },
+          {
+            "end": 95.131,
+            "start": 94.81099999999999,
+            "word": "so "
+          },
+          {
+            "end": 95.291,
+            "start": 95.131,
+            "word": "we "
+          },
+          {
+            "end": 95.451,
+            "start": 95.291,
+            "word": "can "
+          },
+          {
+            "end": 95.61099999999999,
+            "start": 95.451,
+            "word": "so "
+          },
+          {
+            "end": 95.771,
+            "start": 95.61099999999999,
+            "word": "we "
+          },
+          {
+            "end": 95.851005,
+            "start": 95.771,
+            "word": "can "
+          },
+          {
+            "end": 96.091,
+            "start": 95.851005,
+            "word": "finish "
+          },
+          {
+            "end": 96.25099999999999,
+            "start": 96.091,
+            "word": "this?"
+          }
+        ]
+      },
+      {
+        "content": "Absolutely! Before we wrap up, do you have any questions for me about the interview or the company?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 98.81721044921875,
+            "start": 97.851947265625,
+            "word": "Absolutely!"
+          },
+          {
+            "end": 99.186572265625,
+            "start": 98.85604614257812,
+            "word": " Before "
+          },
+          {
+            "end": 99.32130932617187,
+            "start": 99.186572265625,
+            "word": "we "
+          },
+          {
+            "end": 99.58973022460937,
+            "start": 99.32130932617187,
+            "word": "wrap "
+          },
+          {
+            "end": 99.748677734375,
+            "start": 99.58973022460937,
+            "word": "up, "
+          },
+          {
+            "end": 99.82236181640624,
+            "start": 99.748677734375,
+            "word": "do "
+          },
+          {
+            "end": 99.92025659179687,
+            "start": 99.82236181640624,
+            "word": "you "
+          },
+          {
+            "end": 100.04236181640626,
+            "start": 99.92025659179687,
+            "word": "have "
+          },
+          {
+            "end": 100.188677734375,
+            "start": 100.04236181640626,
+            "word": "any "
+          },
+          {
+            "end": 100.59183544921875,
+            "start": 100.188677734375,
+            "word": "questions "
+          },
+          {
+            "end": 100.7381513671875,
+            "start": 100.59183544921875,
+            "word": "for "
+          },
+          {
+            "end": 100.86025659179687,
+            "start": 100.7381513671875,
+            "word": "me "
+          },
+          {
+            "end": 101.09288818359374,
+            "start": 100.86025659179687,
+            "word": "about "
+          },
+          {
+            "end": 101.23920385742187,
+            "start": 101.09288818359374,
+            "word": "the "
+          },
+          {
+            "end": 101.76551977539063,
+            "start": 101.23920385742187,
+            "word": "interview "
+          },
+          {
+            "end": 101.92446704101563,
+            "start": 101.76551977539063,
+            "word": "or "
+          },
+          {
+            "end": 102.03394067382813,
+            "start": 101.92446704101563,
+            "word": "the "
+          },
+          {
+            "end": 102.7181513671875,
+            "start": 102.03394067382813,
+            "word": "company?"
+          }
+        ]
+      },
+      {
+        "content": "I think this is a great company. I wanna work here for",
+        "role": "user",
+        "words": [
+          {
+            "end": 104.270995,
+            "start": 104.03099999999999,
+            "word": "I "
+          },
+          {
+            "end": 104.511,
+            "start": 104.270995,
+            "word": "think "
+          },
+          {
+            "end": 104.75099999999999,
+            "start": 104.511,
+            "word": "this "
+          },
+          {
+            "end": 104.910995,
+            "start": 104.75099999999999,
+            "word": "is "
+          },
+          {
+            "end": 105.071,
+            "start": 104.910995,
+            "word": "a "
+          },
+          {
+            "end": 105.231,
+            "start": 105.071,
+            "word": "great "
+          },
+          {
+            "end": 105.551,
+            "start": 105.231,
+            "word": "company. "
+          },
+          {
+            "end": 106.081,
+            "start": 105.841,
+            "word": "I "
+          },
+          {
+            "end": 106.24100399999999,
+            "start": 106.081,
+            "word": "wanna "
+          },
+          {
+            "end": 106.481,
+            "start": 106.24100399999999,
+            "word": "work "
+          },
+          {
+            "end": 106.64099999999999,
+            "start": 106.481,
+            "word": "here "
+          },
+          {
+            "end": 106.72099999999999,
+            "start": 106.64099999999999,
+            "word": "for"
+          }
+        ]
+      },
+      {
+        "content": "It’s awesome to hear you’re excited about working here. Thanks for chatting with me today—have a fantastic day!",
+        "role": "agent",
+        "words": [
+          {
+            "end": 111.18978955078126,
+            "start": 110.90873681640625,
+            "word": "It’s "
+          },
+          {
+            "end": 111.592947265625,
+            "start": 111.18978955078126,
+            "word": "awesome "
+          },
+          {
+            "end": 111.715052734375,
+            "start": 111.592947265625,
+            "word": "to "
+          },
+          {
+            "end": 112.032947265625,
+            "start": 111.715052734375,
+            "word": "hear "
+          },
+          {
+            "end": 112.2645263671875,
+            "start": 112.032947265625,
+            "word": "you’re "
+          },
+          {
+            "end": 112.65610522460938,
+            "start": 112.2645263671875,
+            "word": "excited "
+          },
+          {
+            "end": 112.912947265625,
+            "start": 112.65610522460938,
+            "word": "about "
+          },
+          {
+            "end": 113.31610522460937,
+            "start": 112.912947265625,
+            "word": "working "
+          },
+          {
+            "end": 113.854,
+            "start": 113.31610522460937,
+            "word": "here. "
+          },
+          {
+            "end": 114.24132446289063,
+            "start": 113.88658764648437,
+            "word": "Thanks "
+          },
+          {
+            "end": 114.40027197265626,
+            "start": 114.24132446289063,
+            "word": "for "
+          },
+          {
+            "end": 114.70553515625,
+            "start": 114.40027197265626,
+            "word": "chatting "
+          },
+          {
+            "end": 114.864482421875,
+            "start": 114.70553515625,
+            "word": "with "
+          },
+          {
+            "end": 114.99921923828126,
+            "start": 114.864482421875,
+            "word": "me "
+          },
+          {
+            "end": 115.65921923828125,
+            "start": 114.99921923828126,
+            "word": "today—have "
+          },
+          {
+            "end": 115.76869287109375,
+            "start": 115.65921923828125,
+            "word": "a "
+          },
+          {
+            "end": 116.5760615234375,
+            "start": 115.76869287109375,
+            "word": "fantastic "
+          },
+          {
+            "end": 117.11290356445312,
+            "start": 116.5760615234375,
+            "word": "day!"
+          }
+        ]
+      }
+    ],
+    "video_url": null
+  },
+  "interview_flow_id": "9ebf9e44",
+  "interview_id": "e25d5292-7f83-4b49-ad80-97c338209102",
+  "status": "completed"
+}

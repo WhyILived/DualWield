@@ -228,15 +228,16 @@ def conduct_interview(questions, additional_info):
     }
 
     try:
-        transcript = requests.get(url, headers=headers).json()
+        response = requests.get(url, headers=headers).json()
         
-        if transcript:
-            # Save transcript
-            filename = f"transcript_{interview_id}.json"
-            with open(filename, 'w', encoding='utf-8') as f:
-                json.dump(transcript, f, indent=2, ensure_ascii=False)
-            print(f"\n📝 Transcript saved to: {filename}")
+        # if response:
+        #     # Save response
+        #     filename = f"response_{interview_id}.json"
+        #     with open(filename, 'w', encoding='utf-8') as f:
+        #         json.dump(response, f, indent=2, ensure_ascii=False)
+        #     print(f"\n📝 response saved to: {filename}")
         
+        transcript = response["interview_data"]["transcript"]
         return interview_link, transcript
     except:
         return "Transcript Failed"

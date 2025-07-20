@@ -1,0 +1,1977 @@
+{
+  "interview_data": {
+    "audio_url": "https://dxc03zgurdly9.cloudfront.net/4f093266205006e5d07f1d2ad539dc952ccd6ec34df3a20ee0b5215e8daf61ce/recording.wav",
+    "questions_to_transcript_mapping": [],
+    "transcript": "Agent: Hi, I’m from Dualwield calling about your AI-powered interview. How are you doing?\nUser: Good. Keep this quick.\nAgent: Got it, quick and to the point. So, what is recursion?\nUser: Versions of the function calls and stuff.\nAgent: Yeah, you’re on the right track! Recursion is when a function calls itself to solve smaller parts of a problem. Can you give me an example where recursion might be useful?\nUser: That's first search audio. Important. Yeah.\nAgent: Sounds \nUser: User urgent to go and break down the problem. Yeah. I just Okay.\nAgent: I think you’re saying recursion helps break down a big problem into smaller chunks, right? Like dividing tasks into simpler steps? Can you tell me about a specific problem you’d solve with recursion?\nUser: When it comes to let's sorting algorithm, let's switch algorithm. Not required looking at the tree, like, data structure.\nUser: will\nAgent: Ah, gotcha! So you’re thinking about sorting algorithms and tree structures where recursion shines. Can you name a sorting algorithm that uses recursion? Maybe explain briefly how it works?\nUser: Next question,\nAgent: Alright, moving on! What are the SOLID principles?\nUser: I'm not sure about them, but I know they're most important when it does. As thanks to your teamwork, I hate.\nAgent: No worries, SOLID can be tricky at first. They’re basically five design principles to make code easier to manage and work with, especially in teams. Want me to quickly run through what each letter stands for? Or would you rather share what you think teamwork means in coding?\nUser: I think team working good. It was based on this rather than object oriented solutions. That that's all I have to say.\nAgent: Totally get that—teamwork is huge in coding, and SOLID helps keep things clear for everyone. Since you mentioned object-oriented stuff, do you have experience with classes or interfaces? How do you usually organize your code?\nUser: Hey. I'm usually organized and used with another table, like, structures. That's it.\nUser: category.\nUser: that's about it. No. I think that's\nAgent: Gotcha, sounds like you prefer using data structures over heavy object-oriented setups. That’s cool—sometimes simpler is better. Before we wrap up, do you have any questions for me?\nUser: No. I don't.\nAgent: Thanks for chatting with me today. Take care!\n",
+    "transcript_with_timestamp": [
+      {
+        "content": "Hi, I’m from Dualwield calling about your AI-powered interview. How are you doing?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 1.655894775390625,
+            "start": 1.240105224609375,
+            "word": "Hi, "
+          },
+          {
+            "end": 1.86326318359375,
+            "start": 1.655894775390625,
+            "word": "I’m "
+          },
+          {
+            "end": 2.059052734375,
+            "start": 1.86326318359375,
+            "word": "from "
+          },
+          {
+            "end": 2.560105224609375,
+            "start": 2.059052734375,
+            "word": "Dualwield "
+          },
+          {
+            "end": 2.90221044921875,
+            "start": 2.560105224609375,
+            "word": "calling "
+          },
+          {
+            "end": 3.159052734375,
+            "start": 2.90221044921875,
+            "word": "about "
+          },
+          {
+            "end": 3.34221044921875,
+            "start": 3.159052734375,
+            "word": "your "
+          },
+          {
+            "end": 4.100105224609375,
+            "start": 3.34221044921875,
+            "word": "AI-powered "
+          },
+          {
+            "end": 4.83273681640625,
+            "start": 4.100105224609375,
+            "word": "interview."
+          },
+          {
+            "end": 5.02141455078125,
+            "start": 4.874046142578125,
+            "word": " How "
+          },
+          {
+            "end": 5.143519775390625,
+            "start": 5.02141455078125,
+            "word": "are "
+          },
+          {
+            "end": 5.265625,
+            "start": 5.143519775390625,
+            "word": "you "
+          },
+          {
+            "end": 5.851940673828125,
+            "start": 5.265625,
+            "word": "doing?"
+          }
+        ]
+      },
+      {
+        "content": "Good. Keep this quick.",
+        "role": "user",
+        "words": [
+          {
+            "end": 7.4449996,
+            "start": 7.205,
+            "word": "Good. "
+          },
+          {
+            "end": 7.9750003,
+            "start": 7.655,
+            "word": "Keep "
+          },
+          {
+            "end": 8.135,
+            "start": 7.9750003,
+            "word": "this "
+          },
+          {
+            "end": 8.375,
+            "start": 8.135,
+            "word": "quick."
+          }
+        ]
+      },
+      {
+        "content": "Got it, quick and to the point. So, what is recursion?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 9.973631591796876,
+            "start": 9.643105224609375,
+            "word": "Got "
+          },
+          {
+            "end": 10.09573681640625,
+            "start": 9.973631591796876,
+            "word": "it, "
+          },
+          {
+            "end": 10.31573681640625,
+            "start": 10.09573681640625,
+            "word": "quick "
+          },
+          {
+            "end": 10.42521044921875,
+            "start": 10.31573681640625,
+            "word": "and "
+          },
+          {
+            "end": 10.523105224609376,
+            "start": 10.42521044921875,
+            "word": "to "
+          },
+          {
+            "end": 10.633631591796876,
+            "start": 10.523105224609376,
+            "word": "the "
+          },
+          {
+            "end": 11.2315263671875,
+            "start": 10.633631591796876,
+            "word": "point."
+          },
+          {
+            "end": 11.492796142578126,
+            "start": 11.261217041015625,
+            "word": " So, "
+          },
+          {
+            "end": 11.725427734375,
+            "start": 11.492796142578126,
+            "word": "what "
+          },
+          {
+            "end": 11.958059326171876,
+            "start": 11.725427734375,
+            "word": "is "
+          },
+          {
+            "end": 12.9349013671875,
+            "start": 11.958059326171876,
+            "word": "recursion?"
+          }
+        ]
+      },
+      {
+        "content": "Versions of the function calls and stuff.",
+        "role": "user",
+        "words": [
+          {
+            "end": 15.844999,
+            "start": 15.365,
+            "word": "Versions "
+          },
+          {
+            "end": 16.004998999999998,
+            "start": 15.844999,
+            "word": "of "
+          },
+          {
+            "end": 16.165,
+            "start": 16.004998999999998,
+            "word": "the "
+          },
+          {
+            "end": 16.405,
+            "start": 16.165,
+            "word": "function "
+          },
+          {
+            "end": 16.644999,
+            "start": 16.405,
+            "word": "calls "
+          },
+          {
+            "end": 16.804999000000002,
+            "start": 16.644999,
+            "word": "and "
+          },
+          {
+            "end": 16.965,
+            "start": 16.804999000000002,
+            "word": "stuff."
+          }
+        ]
+      },
+      {
+        "content": "Yeah, you’re on the right track! Recursion is when a function calls itself to solve smaller parts of a problem. Can you give me an example where recursion might be useful?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 19.180947265625,
+            "start": 18.924105224609374,
+            "word": "Yeah, "
+          },
+          {
+            "end": 19.388315673828124,
+            "start": 19.180947265625,
+            "word": "you’re "
+          },
+          {
+            "end": 19.48621044921875,
+            "start": 19.388315673828124,
+            "word": "on "
+          },
+          {
+            "end": 19.584105224609374,
+            "start": 19.48621044921875,
+            "word": "the "
+          },
+          {
+            "end": 19.7914736328125,
+            "start": 19.584105224609374,
+            "word": "right "
+          },
+          {
+            "end": 20.415684326171874,
+            "start": 19.7914736328125,
+            "word": "track!"
+          },
+          {
+            "end": 20.942644775390626,
+            "start": 20.417381591796875,
+            "word": " Recursion "
+          },
+          {
+            "end": 21.052118408203125,
+            "start": 20.942644775390626,
+            "word": "is "
+          },
+          {
+            "end": 21.247907958984374,
+            "start": 21.052118408203125,
+            "word": "when "
+          },
+          {
+            "end": 21.333171142578124,
+            "start": 21.247907958984374,
+            "word": "a "
+          },
+          {
+            "end": 21.785802734375,
+            "start": 21.333171142578124,
+            "word": "function "
+          },
+          {
+            "end": 22.103697265625,
+            "start": 21.785802734375,
+            "word": "calls "
+          },
+          {
+            "end": 22.457381591796874,
+            "start": 22.103697265625,
+            "word": "itself "
+          },
+          {
+            "end": 22.592118408203124,
+            "start": 22.457381591796874,
+            "word": "to "
+          },
+          {
+            "end": 22.897381591796876,
+            "start": 22.592118408203124,
+            "word": "solve "
+          },
+          {
+            "end": 23.337381591796873,
+            "start": 22.897381591796876,
+            "word": "smaller "
+          },
+          {
+            "end": 23.606855224609376,
+            "start": 23.337381591796873,
+            "word": "parts "
+          },
+          {
+            "end": 23.716328857421875,
+            "start": 23.606855224609376,
+            "word": "of "
+          },
+          {
+            "end": 23.802644775390625,
+            "start": 23.716328857421875,
+            "word": "a "
+          },
+          {
+            "end": 24.60896044921875,
+            "start": 23.802644775390625,
+            "word": "problem."
+          },
+          {
+            "end": 24.83129833984375,
+            "start": 24.6355087890625,
+            "word": " Can "
+          },
+          {
+            "end": 24.94077197265625,
+            "start": 24.83129833984375,
+            "word": "you "
+          },
+          {
+            "end": 25.087087646484374,
+            "start": 24.94077197265625,
+            "word": "give "
+          },
+          {
+            "end": 25.184982421875,
+            "start": 25.087087646484374,
+            "word": "me "
+          },
+          {
+            "end": 25.282877197265623,
+            "start": 25.184982421875,
+            "word": "an "
+          },
+          {
+            "end": 25.698666748046875,
+            "start": 25.282877197265623,
+            "word": "example "
+          },
+          {
+            "end": 25.881824462890624,
+            "start": 25.698666748046875,
+            "word": "where "
+          },
+          {
+            "end": 26.3344560546875,
+            "start": 25.881824462890624,
+            "word": "recursion "
+          },
+          {
+            "end": 26.493403564453125,
+            "start": 26.3344560546875,
+            "word": "might "
+          },
+          {
+            "end": 26.602877197265624,
+            "start": 26.493403564453125,
+            "word": "be "
+          },
+          {
+            "end": 27.3365615234375,
+            "start": 26.602877197265624,
+            "word": "useful?"
+          }
+        ]
+      },
+      {
+        "content": "That's first search audio. Important. Yeah.",
+        "role": "user",
+        "words": [
+          {
+            "end": 29.034999999999997,
+            "start": 28.475,
+            "word": "That's "
+          },
+          {
+            "end": 29.354999999999997,
+            "start": 29.034999999999997,
+            "word": "first "
+          },
+          {
+            "end": 29.755000000000003,
+            "start": 29.354999999999997,
+            "word": "search "
+          },
+          {
+            "end": 30.235,
+            "start": 29.755000000000003,
+            "word": "audio. "
+          },
+          {
+            "end": 31.494999,
+            "start": 31.015,
+            "word": "Important. "
+          },
+          {
+            "end": 32.395,
+            "start": 32.075,
+            "word": "Yeah."
+          }
+        ]
+      },
+      {
+        "content": "Sounds ",
+        "role": "agent",
+        "words": [
+          {
+            "end": 34.74921044921875,
+            "start": 34.443947265625,
+            "word": "Sounds "
+          }
+        ]
+      },
+      {
+        "content": "User urgent to go and break down the problem. Yeah. I just Okay.",
+        "role": "user",
+        "words": [
+          {
+            "end": 35.035000000000004,
+            "start": 34.635000000000005,
+            "word": "User "
+          },
+          {
+            "end": 35.435,
+            "start": 35.035000000000004,
+            "word": "urgent "
+          },
+          {
+            "end": 35.675000000000004,
+            "start": 35.435,
+            "word": "to "
+          },
+          {
+            "end": 35.835,
+            "start": 35.675000000000004,
+            "word": "go "
+          },
+          {
+            "end": 35.995000000000005,
+            "start": 35.835,
+            "word": "and "
+          },
+          {
+            "end": 36.235,
+            "start": 35.995000000000005,
+            "word": "break "
+          },
+          {
+            "end": 36.395,
+            "start": 36.235,
+            "word": "down "
+          },
+          {
+            "end": 36.555,
+            "start": 36.395,
+            "word": "the "
+          },
+          {
+            "end": 36.875,
+            "start": 36.555,
+            "word": "problem. "
+          },
+          {
+            "end": 37.695,
+            "start": 37.135000000000005,
+            "word": "Yeah. "
+          },
+          {
+            "end": 37.775,
+            "start": 37.695,
+            "word": "I "
+          },
+          {
+            "end": 37.935,
+            "start": 37.775,
+            "word": "just "
+          },
+          {
+            "end": 40.854998,
+            "start": 40.455,
+            "word": "Okay."
+          }
+        ]
+      },
+      {
+        "content": "I think you’re saying recursion helps break down a big problem into smaller chunks, right? Like dividing tasks into simpler steps? Can you tell me about a specific problem you’d solve with recursion?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 43.176052734375,
+            "start": 43.053947265625,
+            "word": "I "
+          },
+          {
+            "end": 43.35921044921875,
+            "start": 43.176052734375,
+            "word": "think "
+          },
+          {
+            "end": 43.555,
+            "start": 43.35921044921875,
+            "word": "you’re "
+          },
+          {
+            "end": 43.84868432617188,
+            "start": 43.555,
+            "word": "saying "
+          },
+          {
+            "end": 44.435,
+            "start": 43.84868432617188,
+            "word": "recursion "
+          },
+          {
+            "end": 44.80131567382813,
+            "start": 44.435,
+            "word": "helps "
+          },
+          {
+            "end": 45.131842041015624,
+            "start": 44.80131567382813,
+            "word": "break "
+          },
+          {
+            "end": 45.44868432617187,
+            "start": 45.131842041015624,
+            "word": "down "
+          },
+          {
+            "end": 45.57184204101563,
+            "start": 45.44868432617187,
+            "word": "a "
+          },
+          {
+            "end": 45.79184204101563,
+            "start": 45.57184204101563,
+            "word": "big "
+          },
+          {
+            "end": 46.195,
+            "start": 45.79184204101563,
+            "word": "problem "
+          },
+          {
+            "end": 46.42657885742187,
+            "start": 46.195,
+            "word": "into "
+          },
+          {
+            "end": 46.86657885742188,
+            "start": 46.42657885742187,
+            "word": "smaller "
+          },
+          {
+            "end": 47.356052734375,
+            "start": 46.86657885742188,
+            "word": "chunks, "
+          },
+          {
+            "end": 47.92973681640625,
+            "start": 47.356052734375,
+            "word": "right?"
+          },
+          {
+            "end": 48.17859204101563,
+            "start": 47.970171142578124,
+            "word": " Like "
+          },
+          {
+            "end": 48.60596044921875,
+            "start": 48.17859204101563,
+            "word": "dividing "
+          },
+          {
+            "end": 48.9722763671875,
+            "start": 48.60596044921875,
+            "word": "tasks "
+          },
+          {
+            "end": 49.21753955078125,
+            "start": 48.9722763671875,
+            "word": "into "
+          },
+          {
+            "end": 49.65753955078125,
+            "start": 49.21753955078125,
+            "word": "simpler "
+          },
+          {
+            "end": 50.31753955078125,
+            "start": 49.65753955078125,
+            "word": "steps?"
+          },
+          {
+            "end": 50.5050810546875,
+            "start": 50.333502197265624,
+            "word": " Can "
+          },
+          {
+            "end": 50.60297583007812,
+            "start": 50.5050810546875,
+            "word": "you "
+          },
+          {
+            "end": 50.74929174804687,
+            "start": 50.60297583007812,
+            "word": "tell "
+          },
+          {
+            "end": 50.834554931640625,
+            "start": 50.74929174804687,
+            "word": "me "
+          },
+          {
+            "end": 51.01771264648438,
+            "start": 50.834554931640625,
+            "word": "about "
+          },
+          {
+            "end": 51.09139697265625,
+            "start": 51.01771264648438,
+            "word": "a "
+          },
+          {
+            "end": 51.53139697265625,
+            "start": 51.09139697265625,
+            "word": "specific "
+          },
+          {
+            "end": 51.91034423828125,
+            "start": 51.53139697265625,
+            "word": "problem "
+          },
+          {
+            "end": 52.1061337890625,
+            "start": 51.91034423828125,
+            "word": "you’d "
+          },
+          {
+            "end": 52.33771264648438,
+            "start": 52.1061337890625,
+            "word": "solve "
+          },
+          {
+            "end": 52.49666015625,
+            "start": 52.33771264648438,
+            "word": "with "
+          },
+          {
+            "end": 53.24192333984375,
+            "start": 52.49666015625,
+            "word": "recursion?"
+          }
+        ]
+      },
+      {
+        "content": "When it comes to let's sorting algorithm, let's switch algorithm. Not required looking at the tree, like, data structure.",
+        "role": "user",
+        "words": [
+          {
+            "end": 56.385000000000005,
+            "start": 56.065000000000005,
+            "word": "When "
+          },
+          {
+            "end": 56.545,
+            "start": 56.385000000000005,
+            "word": "it "
+          },
+          {
+            "end": 56.785000000000004,
+            "start": 56.545,
+            "word": "comes "
+          },
+          {
+            "end": 57.025,
+            "start": 56.785000000000004,
+            "word": "to "
+          },
+          {
+            "end": 57.425000000000004,
+            "start": 57.105000000000004,
+            "word": "let's "
+          },
+          {
+            "end": 57.915003,
+            "start": 57.515,
+            "word": "sorting "
+          },
+          {
+            "end": 58.635000000000005,
+            "start": 57.915003,
+            "word": "algorithm, "
+          },
+          {
+            "end": 58.955,
+            "start": 58.635000000000005,
+            "word": "let's "
+          },
+          {
+            "end": 59.195,
+            "start": 58.955,
+            "word": "switch "
+          },
+          {
+            "end": 59.595003,
+            "start": 59.195,
+            "word": "algorithm. "
+          },
+          {
+            "end": 60.585,
+            "start": 60.345,
+            "word": "Not "
+          },
+          {
+            "end": 61.065000000000005,
+            "start": 60.585,
+            "word": "required "
+          },
+          {
+            "end": 61.465,
+            "start": 61.065000000000005,
+            "word": "looking "
+          },
+          {
+            "end": 61.624998000000005,
+            "start": 61.465,
+            "word": "at "
+          },
+          {
+            "end": 62.435003,
+            "start": 62.115004,
+            "word": "the "
+          },
+          {
+            "end": 62.915003,
+            "start": 62.435003,
+            "word": "tree, "
+          },
+          {
+            "end": 63.155,
+            "start": 62.915003,
+            "word": "like, "
+          },
+          {
+            "end": 63.395002000000005,
+            "start": 63.155,
+            "word": "data "
+          },
+          {
+            "end": 63.715002,
+            "start": 63.395002000000005,
+            "word": "structure."
+          }
+        ]
+      },
+      {
+        "content": "will",
+        "role": "user",
+        "words": [
+          {
+            "end": 65.885004,
+            "start": 65.645,
+            "word": "will"
+          }
+        ]
+      },
+      {
+        "content": "Ah, gotcha! So you’re thinking about sorting algorithms and tree structures where recursion shines. Can you name a sorting algorithm that uses recursion? Maybe explain briefly how it works?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 70.14284204101563,
+            "start": 69.824947265625,
+            "word": "Ah, "
+          },
+          {
+            "end": 70.74178955078125,
+            "start": 70.14284204101563,
+            "word": "gotcha!"
+          },
+          {
+            "end": 70.96346484375,
+            "start": 70.77925439453125,
+            "word": " So "
+          },
+          {
+            "end": 71.15820166015625,
+            "start": 70.96346484375,
+            "word": "you’re "
+          },
+          {
+            "end": 71.48872802734375,
+            "start": 71.15820166015625,
+            "word": "thinking "
+          },
+          {
+            "end": 71.7329384765625,
+            "start": 71.48872802734375,
+            "word": "about "
+          },
+          {
+            "end": 72.0750439453125,
+            "start": 71.7329384765625,
+            "word": "sorting "
+          },
+          {
+            "end": 72.6739912109375,
+            "start": 72.0750439453125,
+            "word": "algorithms "
+          },
+          {
+            "end": 72.82030712890625,
+            "start": 72.6739912109375,
+            "word": "and "
+          },
+          {
+            "end": 73.1139912109375,
+            "start": 72.82030712890625,
+            "word": "tree "
+          },
+          {
+            "end": 73.62767553710937,
+            "start": 73.1139912109375,
+            "word": "structures "
+          },
+          {
+            "end": 73.89609643554688,
+            "start": 73.62767553710937,
+            "word": "where "
+          },
+          {
+            "end": 74.42135961914063,
+            "start": 73.89609643554688,
+            "word": "recursion "
+          },
+          {
+            "end": 75.08135961914063,
+            "start": 74.42135961914063,
+            "word": "shines."
+          },
+          {
+            "end": 75.34208764648437,
+            "start": 75.12208764648437,
+            "word": " Can "
+          },
+          {
+            "end": 75.45261401367188,
+            "start": 75.34208764648437,
+            "word": "you "
+          },
+          {
+            "end": 75.659982421875,
+            "start": 75.45261401367188,
+            "word": "name "
+          },
+          {
+            "end": 75.75787719726563,
+            "start": 75.659982421875,
+            "word": "a "
+          },
+          {
+            "end": 76.2105087890625,
+            "start": 75.75787719726563,
+            "word": "sorting "
+          },
+          {
+            "end": 76.74840356445313,
+            "start": 76.2105087890625,
+            "word": "algorithm "
+          },
+          {
+            "end": 76.90629833984374,
+            "start": 76.74840356445313,
+            "word": "that "
+          },
+          {
+            "end": 77.23682446289062,
+            "start": 76.90629833984374,
+            "word": "uses "
+          },
+          {
+            "end": 78.00629833984375,
+            "start": 77.23682446289062,
+            "word": "recursion?"
+          },
+          {
+            "end": 78.36127416992187,
+            "start": 78.04337939453124,
+            "word": " Maybe "
+          },
+          {
+            "end": 78.78969506835938,
+            "start": 78.36127416992187,
+            "word": "explain "
+          },
+          {
+            "end": 79.2170634765625,
+            "start": 78.78969506835938,
+            "word": "briefly "
+          },
+          {
+            "end": 79.388642578125,
+            "start": 79.2170634765625,
+            "word": "how "
+          },
+          {
+            "end": 79.4981162109375,
+            "start": 79.388642578125,
+            "word": "it "
+          },
+          {
+            "end": 80.24337939453125,
+            "start": 79.4981162109375,
+            "word": "works?"
+          }
+        ]
+      },
+      {
+        "content": "Next question,",
+        "role": "user",
+        "words": [
+          {
+            "end": 83.355,
+            "start": 83.035,
+            "word": "Next "
+          },
+          {
+            "end": 83.675,
+            "start": 83.355,
+            "word": "question,"
+          }
+        ]
+      },
+      {
+        "content": "Alright, moving on! What are the SOLID principles?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 87.99073681640625,
+            "start": 87.53810522460938,
+            "word": "Alright, "
+          },
+          {
+            "end": 88.32021044921875,
+            "start": 87.99073681640625,
+            "word": "moving "
+          },
+          {
+            "end": 88.6865263671875,
+            "start": 88.32021044921875,
+            "word": "on!"
+          },
+          {
+            "end": 88.87328955078125,
+            "start": 88.72592114257813,
+            "word": " What "
+          },
+          {
+            "end": 89.0069736328125,
+            "start": 88.87328955078125,
+            "word": "are "
+          },
+          {
+            "end": 89.1175,
+            "start": 89.0069736328125,
+            "word": "the "
+          },
+          {
+            "end": 89.496447265625,
+            "start": 89.1175,
+            "word": "SOLID "
+          },
+          {
+            "end": 90.33960522460937,
+            "start": 89.496447265625,
+            "word": "principles?"
+          }
+        ]
+      },
+      {
+        "content": "I'm not sure about them, but I know they're most important when it does. As thanks to your teamwork, I hate.",
+        "role": "user",
+        "words": [
+          {
+            "end": 92.185,
+            "start": 91.785,
+            "word": "I'm "
+          },
+          {
+            "end": 92.344995,
+            "start": 92.185,
+            "word": "not "
+          },
+          {
+            "end": 92.58500000000001,
+            "start": 92.344995,
+            "word": "sure "
+          },
+          {
+            "end": 92.825,
+            "start": 92.58500000000001,
+            "word": "about "
+          },
+          {
+            "end": 93.145,
+            "start": 92.825,
+            "word": "them, "
+          },
+          {
+            "end": 93.22500000000001,
+            "start": 93.145,
+            "word": "but "
+          },
+          {
+            "end": 93.385,
+            "start": 93.22500000000001,
+            "word": "I "
+          },
+          {
+            "end": 93.465,
+            "start": 93.385,
+            "word": "know "
+          },
+          {
+            "end": 93.785,
+            "start": 93.465,
+            "word": "they're "
+          },
+          {
+            "end": 94.024996,
+            "start": 93.785,
+            "word": "most "
+          },
+          {
+            "end": 94.344995,
+            "start": 94.024996,
+            "word": "important "
+          },
+          {
+            "end": 94.58500000000001,
+            "start": 94.344995,
+            "word": "when "
+          },
+          {
+            "end": 94.664995,
+            "start": 94.58500000000001,
+            "word": "it "
+          },
+          {
+            "end": 94.825,
+            "start": 94.664995,
+            "word": "does. "
+          },
+          {
+            "end": 95.94500000000001,
+            "start": 95.145,
+            "word": "As "
+          },
+          {
+            "end": 96.265,
+            "start": 95.94500000000001,
+            "word": "thanks "
+          },
+          {
+            "end": 96.425,
+            "start": 96.265,
+            "word": "to "
+          },
+          {
+            "end": 96.505,
+            "start": 96.425,
+            "word": "your "
+          },
+          {
+            "end": 96.905,
+            "start": 96.505,
+            "word": "teamwork, "
+          },
+          {
+            "end": 97.145,
+            "start": 96.905,
+            "word": "I "
+          },
+          {
+            "end": 97.465,
+            "start": 97.145,
+            "word": "hate."
+          }
+        ]
+      },
+      {
+        "content": "No worries, SOLID can be tricky at first. They’re basically five design principles to make code easier to manage and work with, especially in teams. Want me to quickly run through what each letter stands for? Or would you rather share what you think teamwork means in coding?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 99.824947265625,
+            "start": 99.62915795898438,
+            "word": "No "
+          },
+          {
+            "end": 100.17968432617188,
+            "start": 99.824947265625,
+            "word": "worries, "
+          },
+          {
+            "end": 100.53336840820313,
+            "start": 100.17968432617188,
+            "word": "SOLID "
+          },
+          {
+            "end": 100.68073681640625,
+            "start": 100.53336840820313,
+            "word": "can "
+          },
+          {
+            "end": 100.77757885742187,
+            "start": 100.68073681640625,
+            "word": "be "
+          },
+          {
+            "end": 101.08389477539062,
+            "start": 100.77757885742187,
+            "word": "tricky "
+          },
+          {
+            "end": 101.206,
+            "start": 101.08389477539062,
+            "word": "at "
+          },
+          {
+            "end": 101.74389477539063,
+            "start": 101.206,
+            "word": "first."
+          },
+          {
+            "end": 102.03135083007813,
+            "start": 101.78608764648438,
+            "word": " They’re "
+          },
+          {
+            "end": 102.58082446289062,
+            "start": 102.03135083007813,
+            "word": "basically "
+          },
+          {
+            "end": 103.08187719726563,
+            "start": 102.58082446289062,
+            "word": "five "
+          },
+          {
+            "end": 103.5955615234375,
+            "start": 103.08187719726563,
+            "word": "design "
+          },
+          {
+            "end": 104.29135083007813,
+            "start": 103.5955615234375,
+            "word": "principles "
+          },
+          {
+            "end": 104.51135083007813,
+            "start": 104.29135083007813,
+            "word": "to "
+          },
+          {
+            "end": 104.84187719726563,
+            "start": 104.51135083007813,
+            "word": "make "
+          },
+          {
+            "end": 105.20819287109374,
+            "start": 104.84187719726563,
+            "word": "code "
+          },
+          {
+            "end": 105.68503515625,
+            "start": 105.20819287109374,
+            "word": "easier "
+          },
+          {
+            "end": 105.89240356445312,
+            "start": 105.68503515625,
+            "word": "to "
+          },
+          {
+            "end": 106.32082446289063,
+            "start": 105.89240356445312,
+            "word": "manage "
+          },
+          {
+            "end": 106.4545087890625,
+            "start": 106.32082446289063,
+            "word": "and "
+          },
+          {
+            "end": 106.71135083007813,
+            "start": 106.4545087890625,
+            "word": "work "
+          },
+          {
+            "end": 106.96819287109375,
+            "start": 106.71135083007813,
+            "word": "with, "
+          },
+          {
+            "end": 107.70187719726563,
+            "start": 106.96819287109375,
+            "word": "especially "
+          },
+          {
+            "end": 107.8355615234375,
+            "start": 107.70187719726563,
+            "word": "in "
+          },
+          {
+            "end": 108.67871923828125,
+            "start": 107.8355615234375,
+            "word": "teams."
+          },
+          {
+            "end": 108.88795825195312,
+            "start": 108.68058984375,
+            "word": " Want "
+          },
+          {
+            "end": 108.97322143554688,
+            "start": 108.88795825195312,
+            "word": "me "
+          },
+          {
+            "end": 109.08374780273438,
+            "start": 108.97322143554688,
+            "word": "to "
+          },
+          {
+            "end": 109.4500634765625,
+            "start": 109.08374780273438,
+            "word": "quickly "
+          },
+          {
+            "end": 109.64585302734375,
+            "start": 109.4500634765625,
+            "word": "run "
+          },
+          {
+            "end": 109.8900634765625,
+            "start": 109.64585302734375,
+            "word": "through "
+          },
+          {
+            "end": 110.07322143554687,
+            "start": 109.8900634765625,
+            "word": "what "
+          },
+          {
+            "end": 110.3300634765625,
+            "start": 110.07322143554687,
+            "word": "each "
+          },
+          {
+            "end": 110.62374780273437,
+            "start": 110.3300634765625,
+            "word": "letter "
+          },
+          {
+            "end": 110.9900634765625,
+            "start": 110.62374780273437,
+            "word": "stands "
+          },
+          {
+            "end": 111.5521689453125,
+            "start": 110.9900634765625,
+            "word": "for?"
+          },
+          {
+            "end": 111.76425,
+            "start": 111.59267114257813,
+            "word": " Or "
+          },
+          {
+            "end": 111.923197265625,
+            "start": 111.76425,
+            "word": "would "
+          },
+          {
+            "end": 112.03267114257812,
+            "start": 111.923197265625,
+            "word": "you "
+          },
+          {
+            "end": 112.33898681640625,
+            "start": 112.03267114257812,
+            "word": "rather "
+          },
+          {
+            "end": 112.62003955078124,
+            "start": 112.33898681640625,
+            "word": "share "
+          },
+          {
+            "end": 112.77898681640625,
+            "start": 112.62003955078124,
+            "word": "what "
+          },
+          {
+            "end": 112.925302734375,
+            "start": 112.77898681640625,
+            "word": "you "
+          },
+          {
+            "end": 113.18214477539063,
+            "start": 112.925302734375,
+            "word": "think "
+          },
+          {
+            "end": 113.60951318359375,
+            "start": 113.18214477539063,
+            "word": "teamwork "
+          },
+          {
+            "end": 113.87898681640625,
+            "start": 113.60951318359375,
+            "word": "means "
+          },
+          {
+            "end": 114.00109204101562,
+            "start": 113.87898681640625,
+            "word": "in "
+          },
+          {
+            "end": 114.67267114257812,
+            "start": 114.00109204101562,
+            "word": "coding?"
+          }
+        ]
+      },
+      {
+        "content": "I think team working good. It was based on this rather than object oriented solutions. That that's all I have to say.",
+        "role": "user",
+        "words": [
+          {
+            "end": 116.355,
+            "start": 116.035,
+            "word": "I "
+          },
+          {
+            "end": 116.595,
+            "start": 116.355,
+            "word": "think "
+          },
+          {
+            "end": 116.915,
+            "start": 116.595,
+            "word": "team "
+          },
+          {
+            "end": 117.235,
+            "start": 116.915,
+            "word": "working "
+          },
+          {
+            "end": 117.795,
+            "start": 117.235,
+            "word": "good. "
+          },
+          {
+            "end": 117.95499600000001,
+            "start": 117.795,
+            "word": "It "
+          },
+          {
+            "end": 118.115,
+            "start": 117.95499600000001,
+            "word": "was "
+          },
+          {
+            "end": 118.775,
+            "start": 118.375,
+            "word": "based "
+          },
+          {
+            "end": 118.935,
+            "start": 118.775,
+            "word": "on "
+          },
+          {
+            "end": 119.175005,
+            "start": 118.935,
+            "word": "this "
+          },
+          {
+            "end": 119.735,
+            "start": 119.175005,
+            "word": "rather "
+          },
+          {
+            "end": 119.97500000000001,
+            "start": 119.735,
+            "word": "than "
+          },
+          {
+            "end": 120.375,
+            "start": 119.97500000000001,
+            "word": "object "
+          },
+          {
+            "end": 120.935,
+            "start": 120.375,
+            "word": "oriented "
+          },
+          {
+            "end": 121.97500000000001,
+            "start": 120.935,
+            "word": "solutions. "
+          },
+          {
+            "end": 122.135004,
+            "start": 121.97500000000001,
+            "word": "That "
+          },
+          {
+            "end": 122.455,
+            "start": 122.295,
+            "word": "that's "
+          },
+          {
+            "end": 122.615,
+            "start": 122.455,
+            "word": "all "
+          },
+          {
+            "end": 122.775,
+            "start": 122.615,
+            "word": "I "
+          },
+          {
+            "end": 122.935,
+            "start": 122.775,
+            "word": "have "
+          },
+          {
+            "end": 123.015,
+            "start": 122.935,
+            "word": "to "
+          },
+          {
+            "end": 123.175005,
+            "start": 123.015,
+            "word": "say."
+          }
+        ]
+      },
+      {
+        "content": "Totally get that—teamwork is huge in coding, and SOLID helps keep things clear for everyone. Since you mentioned object-oriented stuff, do you have experience with classes or interfaces? How do you usually organize your code?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 125.63168432617188,
+            "start": 125.20326318359375,
+            "word": "Totally "
+          },
+          {
+            "end": 125.80221044921875,
+            "start": 125.63168432617188,
+            "word": "get "
+          },
+          {
+            "end": 126.66957885742187,
+            "start": 125.80221044921875,
+            "word": "that—teamwork "
+          },
+          {
+            "end": 126.80431567382813,
+            "start": 126.66957885742187,
+            "word": "is "
+          },
+          {
+            "end": 127.08536840820312,
+            "start": 126.80431567382813,
+            "word": "huge "
+          },
+          {
+            "end": 127.22010522460937,
+            "start": 127.08536840820312,
+            "word": "in "
+          },
+          {
+            "end": 127.95378955078125,
+            "start": 127.22010522460937,
+            "word": "coding, "
+          },
+          {
+            "end": 128.259052734375,
+            "start": 127.95378955078125,
+            "word": "and "
+          },
+          {
+            "end": 128.72326318359376,
+            "start": 128.259052734375,
+            "word": "SOLID "
+          },
+          {
+            "end": 129.078,
+            "start": 128.72326318359376,
+            "word": "helps "
+          },
+          {
+            "end": 129.32221044921874,
+            "start": 129.078,
+            "word": "keep "
+          },
+          {
+            "end": 129.61484204101563,
+            "start": 129.32221044921874,
+            "word": "things "
+          },
+          {
+            "end": 129.93273681640625,
+            "start": 129.61484204101563,
+            "word": "clear "
+          },
+          {
+            "end": 130.09168432617187,
+            "start": 129.93273681640625,
+            "word": "for "
+          },
+          {
+            "end": 130.74010522460938,
+            "start": 130.09168432617187,
+            "word": "everyone."
+          },
+          {
+            "end": 131.00771923828125,
+            "start": 130.77508764648437,
+            "word": " Since "
+          },
+          {
+            "end": 131.15403515625,
+            "start": 131.00771923828125,
+            "word": "you "
+          },
+          {
+            "end": 131.54561401367187,
+            "start": 131.15403515625,
+            "word": "mentioned "
+          },
+          {
+            "end": 132.38877197265626,
+            "start": 131.54561401367187,
+            "word": "object-oriented "
+          },
+          {
+            "end": 133.09719287109374,
+            "start": 132.38877197265626,
+            "word": "stuff, "
+          },
+          {
+            "end": 133.2445615234375,
+            "start": 133.09719287109374,
+            "word": "do "
+          },
+          {
+            "end": 133.36666674804687,
+            "start": 133.2445615234375,
+            "word": "you "
+          },
+          {
+            "end": 133.52561401367188,
+            "start": 133.36666674804687,
+            "word": "have "
+          },
+          {
+            "end": 134.02666674804686,
+            "start": 133.52561401367188,
+            "word": "experience "
+          },
+          {
+            "end": 134.18561401367188,
+            "start": 134.02666674804686,
+            "word": "with "
+          },
+          {
+            "end": 134.71087719726563,
+            "start": 134.18561401367188,
+            "word": "classes "
+          },
+          {
+            "end": 134.86982446289062,
+            "start": 134.71087719726563,
+            "word": "or "
+          },
+          {
+            "end": 135.85929833984375,
+            "start": 134.86982446289062,
+            "word": "interfaces?"
+          },
+          {
+            "end": 136.11737939453124,
+            "start": 135.89737939453124,
+            "word": " How "
+          },
+          {
+            "end": 136.26474780273438,
+            "start": 136.11737939453124,
+            "word": "do "
+          },
+          {
+            "end": 136.50895825195312,
+            "start": 136.26474780273438,
+            "word": "you "
+          },
+          {
+            "end": 136.96158984375,
+            "start": 136.50895825195312,
+            "word": "usually "
+          },
+          {
+            "end": 137.47422143554687,
+            "start": 136.96158984375,
+            "word": "organize "
+          },
+          {
+            "end": 137.65737939453126,
+            "start": 137.47422143554687,
+            "word": "your "
+          },
+          {
+            "end": 138.24474780273437,
+            "start": 137.65737939453126,
+            "word": "code?"
+          }
+        ]
+      },
+      {
+        "content": "Hey. I'm usually organized and used with another table, like, structures. That's it.",
+        "role": "user",
+        "words": [
+          {
+            "end": 141.56499,
+            "start": 141.00499,
+            "word": "Hey. "
+          },
+          {
+            "end": 141.80499999999998,
+            "start": 141.56499,
+            "word": "I'm "
+          },
+          {
+            "end": 142.12499,
+            "start": 141.80499999999998,
+            "word": "usually "
+          },
+          {
+            "end": 142.84499,
+            "start": 142.12499,
+            "word": "organized "
+          },
+          {
+            "end": 143.08499999999998,
+            "start": 142.84499,
+            "word": "and "
+          },
+          {
+            "end": 143.40499,
+            "start": 143.08499999999998,
+            "word": "used "
+          },
+          {
+            "end": 143.80499999999998,
+            "start": 143.40499,
+            "word": "with "
+          },
+          {
+            "end": 145.07501,
+            "start": 144.755,
+            "word": "another "
+          },
+          {
+            "end": 145.55500999999998,
+            "start": 145.07501,
+            "word": "table, "
+          },
+          {
+            "end": 145.63501,
+            "start": 145.55500999999998,
+            "word": "like, "
+          },
+          {
+            "end": 146.785,
+            "start": 146.065,
+            "word": "structures. "
+          },
+          {
+            "end": 147.665,
+            "start": 147.18499999999997,
+            "word": "That's "
+          },
+          {
+            "end": 147.825,
+            "start": 147.665,
+            "word": "it."
+          }
+        ]
+      },
+      {
+        "content": "category.",
+        "role": "user",
+        "words": [
+          {
+            "end": 149.355,
+            "start": 149.11499999999998,
+            "word": "category."
+          }
+        ]
+      },
+      {
+        "content": "that's about it. No. I think that's",
+        "role": "user",
+        "words": [
+          {
+            "end": 151.50499,
+            "start": 151.345,
+            "word": "that's "
+          },
+          {
+            "end": 151.74499999999998,
+            "start": 151.50499,
+            "word": "about "
+          },
+          {
+            "end": 151.98499999999999,
+            "start": 151.74499999999998,
+            "word": "it. "
+          },
+          {
+            "end": 152.225,
+            "start": 151.98499999999999,
+            "word": "No. "
+          },
+          {
+            "end": 152.30499999999998,
+            "start": 152.225,
+            "word": "I "
+          },
+          {
+            "end": 152.46499999999997,
+            "start": 152.30499999999998,
+            "word": "think "
+          },
+          {
+            "end": 152.625,
+            "start": 152.46499999999997,
+            "word": "that's"
+          }
+        ]
+      },
+      {
+        "content": "Gotcha, sounds like you prefer using data structures over heavy object-oriented setups. That’s cool—sometimes simpler is better. Before we wrap up, do you have any questions for me?",
+        "role": "agent",
+        "words": [
+          {
+            "end": 157.61768432617188,
+            "start": 156.78610522460937,
+            "word": "Gotcha, "
+          },
+          {
+            "end": 157.9345263671875,
+            "start": 157.61768432617188,
+            "word": "sounds "
+          },
+          {
+            "end": 158.11873681640625,
+            "start": 157.9345263671875,
+            "word": "like "
+          },
+          {
+            "end": 158.28926318359376,
+            "start": 158.11873681640625,
+            "word": "you "
+          },
+          {
+            "end": 158.68084204101564,
+            "start": 158.28926318359376,
+            "word": "prefer "
+          },
+          {
+            "end": 158.9734736328125,
+            "start": 158.68084204101564,
+            "word": "using "
+          },
+          {
+            "end": 159.27978955078126,
+            "start": 158.9734736328125,
+            "word": "data "
+          },
+          {
+            "end": 159.95136840820314,
+            "start": 159.27978955078126,
+            "word": "structures "
+          },
+          {
+            "end": 160.45242114257812,
+            "start": 159.95136840820314,
+            "word": "over "
+          },
+          {
+            "end": 160.81873681640624,
+            "start": 160.45242114257812,
+            "word": "heavy "
+          },
+          {
+            "end": 161.90715795898439,
+            "start": 160.81873681640624,
+            "word": "object-oriented "
+          },
+          {
+            "end": 162.72610522460937,
+            "start": 161.90715795898439,
+            "word": "setups."
+          },
+          {
+            "end": 163.01972143554687,
+            "start": 162.76287939453124,
+            "word": " That’s "
+          },
+          {
+            "end": 163.75340576171874,
+            "start": 163.01972143554687,
+            "word": "cool—sometimes "
+          },
+          {
+            "end": 164.13235302734375,
+            "start": 163.75340576171874,
+            "word": "simpler "
+          },
+          {
+            "end": 164.24182666015625,
+            "start": 164.13235302734375,
+            "word": "is "
+          },
+          {
+            "end": 164.76708984375,
+            "start": 164.24182666015625,
+            "word": "better."
+          },
+          {
+            "end": 165.11698681640624,
+            "start": 164.81067114257812,
+            "word": " Before "
+          },
+          {
+            "end": 165.2506711425781,
+            "start": 165.11698681640624,
+            "word": "we "
+          },
+          {
+            "end": 165.5927763671875,
+            "start": 165.2506711425781,
+            "word": "wrap "
+          },
+          {
+            "end": 165.7517236328125,
+            "start": 165.5927763671875,
+            "word": "up, "
+          },
+          {
+            "end": 165.86225,
+            "start": 165.7517236328125,
+            "word": "do "
+          },
+          {
+            "end": 166.021197265625,
+            "start": 165.86225,
+            "word": "you "
+          },
+          {
+            "end": 166.26540795898438,
+            "start": 166.021197265625,
+            "word": "have "
+          },
+          {
+            "end": 166.48540795898438,
+            "start": 166.26540795898438,
+            "word": "any "
+          },
+          {
+            "end": 166.96225,
+            "start": 166.48540795898438,
+            "word": "questions "
+          },
+          {
+            "end": 167.14540795898438,
+            "start": 166.96225,
+            "word": "for "
+          },
+          {
+            "end": 167.59803955078124,
+            "start": 167.14540795898438,
+            "word": "me?"
+          }
+        ]
+      },
+      {
+        "content": "No. I don't.",
+        "role": "user",
+        "words": [
+          {
+            "end": 168.83499999999998,
+            "start": 168.43499999999997,
+            "word": "No. "
+          },
+          {
+            "end": 168.99499999999998,
+            "start": 168.83499999999998,
+            "word": "I "
+          },
+          {
+            "end": 169.23499999999999,
+            "start": 168.99499999999998,
+            "word": "don't."
+          }
+        ]
+      },
+      {
+        "content": "Thanks for chatting with me today. Take care!",
+        "role": "agent",
+        "words": [
+          {
+            "end": 171.60015795898437,
+            "start": 171.29489477539062,
+            "word": "Thanks "
+          },
+          {
+            "end": 171.73489477539061,
+            "start": 171.60015795898437,
+            "word": "for "
+          },
+          {
+            "end": 172.06436840820314,
+            "start": 171.73489477539061,
+            "word": "chatting "
+          },
+          {
+            "end": 172.235947265625,
+            "start": 172.06436840820314,
+            "word": "with "
+          },
+          {
+            "end": 172.358052734375,
+            "start": 172.235947265625,
+            "word": "me "
+          },
+          {
+            "end": 172.957,
+            "start": 172.358052734375,
+            "word": "today. "
+          },
+          {
+            "end": 173.226927734375,
+            "start": 172.99429614257812,
+            "word": "Take "
+          },
+          {
+            "end": 173.72798022460938,
+            "start": 173.226927734375,
+            "word": "care!"
+          }
+        ]
+      }
+    ],
+    "video_url": null
+  },
+  "interview_flow_id": "bcd7130d",
+  "interview_id": "3750ed9d-496f-4213-804a-ff1fc5f4aa5e",
+  "status": "incomplete"
+}
