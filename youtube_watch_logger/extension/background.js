@@ -86,3 +86,40 @@ async function sendPayload(data) {
   }
   console.log('[BG] Sent video', data.videoId);
 }
+function isPdfUrl(url) {
+    return !!url && url.toLowerCase().includes('.pdf');
+  }
+  
+  // When a tab finishes loading, if it looks like a PDF, fetch & send.
+  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status === 'complete' && isPdfUrl(tab.url)) {
+      console.log('[PDF] Detected PDF URL:', tab.url);
+  
+      fetch(tab.url)
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.arrayBuffer();
+        })
+        .then(buf => {
+          const u8 = new Uint8Array(buf);
+          // Convert to base64 (very naive: fine for a prototype)
+          let binary = '';
+          for (let i = 0; i < u8.length; i++) binary += String.fromCharCode(u8[i]);
+          const b64 = btoa(binary);
+  
+          return fetch('http://127.0.0.1:5001/pdf', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              pdf_base64: b64,
+              source_url: tab.url
+            })
+          });
+        })
+        .then(r => r.json())
+        .then(j => {
+          console.log('[PDF] Extracted text length:', j.text ? j.text.length : 0);
+        })
+        .catch(err => console.warn('[PDF] processing failed:', err));
+    }
+  });
