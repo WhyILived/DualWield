@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>HT6ix AI Teaching Bot</title>
+    <title>Button Test</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,23 +16,26 @@
         <div class="text-box">
             <div class="text-box-header">AI Teaching Bot</div>
             <div class="text-box-content" id="text-box-content">
-                <div class="message">System ready. Press / to toggle view.</div>
+                <div class="message">Button positioning test</div>
             </div>
         </div>
         
         <!-- Circular Button (Buffer) -->
-        <div class="circular-button" id="circular-button">
+        <div class="circular-button" id="circular-button" style="display: flex;">
             <span class="button-symbol">+</span>
         </div>
         
         <!-- Teaching Button -->
-        <div class="teaching-button" id="teaching-button">
+        <div class="teaching-button" id="teaching-button" style="display: flex;">
             <span class="button-symbol">=</span>
         </div>
     </div>
 
-    <script src="audio-visualizer.js"></script>
-    <script src="text-box.js"></script>
-    <script src="main.js"></script>
+    <script>
+        // Simple test to show both buttons
+        console.log('Button test loaded');
+        console.log('+ button should be at top-left center');
+        console.log('= button should be below + button');
+    </script>
 </body>
 </html> 

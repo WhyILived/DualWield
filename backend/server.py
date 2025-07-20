@@ -5,11 +5,29 @@ from PyPDF2 import PdfReader
 from flask import Flask, request, jsonify
 from datetime import datetime
 import json
+import threading
+import time
+import cv2
+import numpy as np
+import pytesseract
+import mss
 from downloader import download_video
 from summarize import summarize_video
+from main_vellum import run_vellum_workflow
+from tts_client import speak, stop, is_speaking
+
+# === DOWNTIME DETECTION SETTINGS ===
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+OCR_REGION = {"top": 450, "left": 2050, "width": 500, "height": 500}
+TARGET_PHRASE = "combat report"
+OCR_CONFIG = "--psm 6"
 
 CONTENT_LOG = ""
 CONTENT_BUFFER = ""
+TEACHING_BOT = None
+TEACHING_ACTIVE = False
+CONTENT_PROCESSING_ACTIVE = True
+DOWNTIME_DETECTION_ACTIVE = False
 
 app = Flask(__name__)
 
@@ -35,6 +53,248 @@ def is_buffer_empty() -> bool:
     Returns True if the buffer is empty, False otherwise.
     """
     return len(CONTENT_BUFFER.strip()) == 0
+
+def is_log_empty() -> bool:
+    """
+    Returns True if the log is empty, False otherwise.
+    """
+    return len(CONTENT_LOG.strip()) == 0
+
+class TeachingBot:
+    def __init__(self):
+        self.learning_content = None
+        self.current_subtopic_index = 0
+        self.current_bullet_index = 0
+        self.is_downtime = False
+        self.teaching_active = False
+        self.downtime_thread = None
+        self.teaching_thread = None
+        self.unread_bullet_points = []
+        self.current_bullet_index = 0
+        
+    def load_content(self, text_content: str) -> bool:
+        """
+        Load learning content from Vellum workflow
+        
+        Args:
+            text_content (str): The text to process
+            
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        print("🚀 Loading learning content from Vellum...")
+        
+        self.learning_content = run_vellum_workflow(text_content)
+        
+        if self.learning_content:
+            print(f"✅ Content loaded successfully!")
+            print(f"📚 Overall Topic: {self.learning_content.get('overall_topic', 'N/A')}")
+            print(f"📝 Number of Subtopics: {len(self.learning_content.get('subtopic', []))}")
+            
+            # Prepare unread bullet points
+            self.prepare_unread_bullet_points()
+            return True
+        else:
+            print("❌ Failed to load learning content")
+            return False
+    
+    def prepare_unread_bullet_points(self):
+        """Prepare list of all unread bullet points"""
+        self.unread_bullet_points = []
+        
+        for subtopic_idx, subtopic in enumerate(self.learning_content.get('subtopic', [])):
+            summaries = subtopic.get('Summaries', [])
+            
+            for bullet_idx, summary in enumerate(summaries):
+                if not summary.get('Read_Status', False):
+                    self.unread_bullet_points.append({
+                        'subtopic_idx': subtopic_idx,
+                        'bullet_idx': bullet_idx,
+                        'section_title': subtopic.get('section_title', 'Unknown'),
+                        'bullet_point': summary.get('Bullet_Point', ''),
+                        'summary': summary
+                    })
+        
+        print(f"📚 Prepared {len(self.unread_bullet_points)} unread bullet points")
+    
+    def mark_bullet_as_read(self, subtopic_idx: int, bullet_idx: int):
+        """Mark a specific bullet point as read"""
+        try:
+            subtopic = self.learning_content['subtopic'][subtopic_idx]
+            summary = subtopic['Summaries'][bullet_idx]
+            summary['Read_Status'] = True
+            print(f"✅ Marked bullet point as read: {summary['Bullet_Point'][:50]}...")
+        except Exception as e:
+            print(f"❌ Error marking bullet as read: {e}")
+    
+    def read_bullet_point(self, bullet_data: dict, is_new_section: bool = False):
+        """Read a single bullet point using TTS"""
+        subtopic_idx = bullet_data['subtopic_idx']
+        bullet_idx = bullet_data['bullet_idx']
+        section_title = bullet_data['section_title']
+        bullet_point = bullet_data['bullet_point']
+        
+        print(f"\n📖 Reading: {section_title}")
+        print(f"   Bullet: {bullet_point[:100]}{'...' if len(bullet_point) > 100 else ''}")
+        
+        # Create reading format - only include section title for new sections
+        if is_new_section:
+            reading_text = f"Section: {section_title}. {bullet_point}"
+        else:
+            reading_text = bullet_point
+        
+        # Speak the content
+        success = speak(reading_text)
+        
+        if success:
+            # Wait for speech to finish
+            while is_speaking():
+                time.sleep(0.1)
+            
+            # Mark as read
+            self.mark_bullet_as_read(subtopic_idx, bullet_idx)
+            return True
+        else:
+            print(f"❌ Failed to speak bullet point")
+            return False
+    
+    def start_teaching_session(self):
+        """Start teaching session"""
+        if not self.learning_content or self.teaching_active:
+            return
+        
+        self.teaching_active = True
+        print("📚 Starting teaching session...")
+        
+        # Start teaching thread
+        self.teaching_thread = threading.Thread(target=self.teach_content, daemon=True)
+        self.teaching_thread.start()
+    
+    def stop_teaching_session(self):
+        """Stop teaching session"""
+        self.teaching_active = False
+        print("⏹️ Stopping teaching session...")
+        
+        # Stop any current TTS
+        stop()
+    
+    def start_downtime_detection(self):
+        """Start monitoring for downtime (combat report)"""
+        print("🎮 Starting downtime detection...")
+        self.downtime_thread = threading.Thread(target=self.monitor_downtime, daemon=True)
+        self.downtime_thread.start()
+    
+    def monitor_downtime(self):
+        """Monitor screen for combat report (downtime detection)"""
+        was_visible = False
+        last_seen_time = None
+        
+        with mss.mss() as sct:
+            try:
+                while self.teaching_active:
+                    # Capture and preprocess screen
+                    img = np.array(sct.grab(OCR_REGION))
+                    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                    _, thresh = cv2.threshold(gray, 180, 255, cv2.THRESH_BINARY)
+
+                    # OCR
+                    text = pytesseract.image_to_string(thresh, config=OCR_CONFIG).lower()
+
+                    if TARGET_PHRASE in text:
+                        if not was_visible:
+                            was_visible = True
+                            last_seen_time = time.time()
+                            print(f"[✅] '{TARGET_PHRASE}' appeared at {time.strftime('%H:%M:%S')}")
+                            self.on_downtime_start()
+                    else:
+                        if was_visible:
+                            was_visible = False
+                            duration = time.time() - last_seen_time
+                            print(f"[❎] '{TARGET_PHRASE}' disappeared at {time.strftime('%H:%M:%S')} (Visible for {duration:.2f}s)")
+                            self.on_downtime_end()
+
+                    time.sleep(0.1)
+
+            except Exception as e:
+                print(f"❌ Error in downtime detection: {e}")
+    
+    def on_downtime_start(self):
+        """Called when downtime (combat report) appears"""
+        self.is_downtime = True
+        print("🎓 Downtime detected - TTS can now speak")
+    
+    def on_downtime_end(self):
+        """Called when downtime (combat report) disappears"""
+        self.is_downtime = False
+        print("🎮 Downtime ended - stopping TTS")
+        stop()
+    
+    def teach_content(self):
+        """Teach content during downtime periods"""
+        current_section = None
+        
+        # Start downtime detection
+        self.start_downtime_detection()
+        
+        while self.teaching_active:
+            # Check if we have unread bullet points
+            if self.current_bullet_index >= len(self.unread_bullet_points):
+                print("✅ All bullet points have been read!")
+                break
+            
+            # Get current bullet point
+            bullet_data = self.unread_bullet_points[self.current_bullet_index]
+            
+            # Check if this is a new section
+            section_title = bullet_data['section_title']
+            is_new_section = (section_title != current_section)
+            
+            if is_new_section:
+                current_section = section_title
+                print(f"📚 New section: {section_title}")
+            
+            # Only read if in downtime
+            if self.is_downtime:
+                # Read the bullet point
+                success = self.read_bullet_point(bullet_data, is_new_section)
+                
+                if success:
+                    self.current_bullet_index += 1
+                    print(f"📖 Progress: {self.current_bullet_index}/{len(self.unread_bullet_points)}")
+                else:
+                    print(f"❌ Failed to read bullet point {self.current_bullet_index + 1}")
+                    break
+            else:
+                print("⏸️ Waiting for downtime to continue teaching...")
+            
+            # Small pause between bullet points
+            time.sleep(0.5)
+            
+            # Check if still active
+            if not self.teaching_active:
+                print("⏸️ Teaching stopped...")
+                break
+        
+        self.teaching_active = False
+        print("🏁 Teaching session ended")
+    
+    def get_progress(self):
+        """Get current reading progress"""
+        if not self.learning_content:
+            return 0, 0
+        
+        total_bullets = 0
+        read_bullets = 0
+        
+        for subtopic in self.learning_content.get('subtopic', []):
+            summaries = subtopic.get('Summaries', [])
+            total_bullets += len(summaries)
+            
+            for summary in summaries:
+                if summary.get('Read_Status', False):
+                    read_bullets += 1
+        
+        return read_bullets, total_bullets
 
 def get_youtube_link():
     """
@@ -110,6 +370,13 @@ def summarize_youtube_video(youtube_url: str) -> str:
 
 @app.post("/log")
 def log():
+    global CONTENT_PROCESSING_ACTIVE
+    
+    if not CONTENT_PROCESSING_ACTIVE:
+        return jsonify({
+            "error": "Content processing is disabled during teaching session"
+        }), 503
+    
     link = get_youtube_link()
     print("YT_LINK", link) 
     try:
@@ -128,6 +395,13 @@ def log():
 
 @app.post("/pdf")
 def pdf():
+    global CONTENT_PROCESSING_ACTIVE
+    
+    if not CONTENT_PROCESSING_ACTIVE:
+        return jsonify({
+            "error": "Content processing is disabled during teaching session"
+        }), 503
+    
     text = get_pdf()
     print("PDF_TEXT_LEN", len(text) if text else 0)
     global CONTENT_BUFFER
@@ -168,6 +442,138 @@ def buffer_status():
         "buffer_empty": is_buffer_empty(),
         "buffer_content": get_buffer()
     })
+
+@app.get("/log_status")
+def log_status():
+    """
+    Returns the current log status.
+    """
+    return jsonify({
+        "log_empty": is_log_empty(),
+        "log_content": get_log()
+    })
+
+@app.post("/start_teaching")
+def start_teaching():
+    """
+    Start teaching session using log content.
+    """
+    global TEACHING_BOT, TEACHING_ACTIVE, CONTENT_PROCESSING_ACTIVE
+    
+    if TEACHING_ACTIVE:
+        return jsonify({
+            "success": False,
+            "message": "Teaching session already active"
+        })
+    
+    if is_log_empty():
+        return jsonify({
+            "success": False,
+            "message": "No content in log to teach"
+        })
+    
+    try:
+        # Stop content processing
+        CONTENT_PROCESSING_ACTIVE = False
+        print("🛑 Content processing stopped - teaching session active")
+        
+        # Initialize teaching bot
+        TEACHING_BOT = TeachingBot()
+        
+        # Load content from log
+        log_content = get_log()
+        if TEACHING_BOT.load_content(log_content):
+            # Start teaching session
+            TEACHING_BOT.start_teaching_session()
+            TEACHING_ACTIVE = True
+            
+            return jsonify({
+                "success": True,
+                "message": "Teaching session started - content processing stopped",
+                "topic": TEACHING_BOT.learning_content.get('overall_topic', 'N/A'),
+                "subtopics": len(TEACHING_BOT.learning_content.get('subtopic', [])),
+                "bullet_points": len(TEACHING_BOT.unread_bullet_points)
+            })
+        else:
+            # Re-enable content processing if teaching failed
+            CONTENT_PROCESSING_ACTIVE = True
+            return jsonify({
+                "success": False,
+                "message": "Failed to load content for teaching"
+            })
+            
+    except Exception as e:
+        # Re-enable content processing if teaching failed
+        CONTENT_PROCESSING_ACTIVE = True
+        return jsonify({
+            "success": False,
+            "message": f"Error starting teaching session: {str(e)}"
+        })
+
+@app.post("/stop_teaching")
+def stop_teaching():
+    """
+    Stop teaching session.
+    """
+    global TEACHING_BOT, TEACHING_ACTIVE, CONTENT_PROCESSING_ACTIVE
+    
+    if not TEACHING_ACTIVE or not TEACHING_BOT:
+        return jsonify({
+            "success": False,
+            "message": "No teaching session active"
+        })
+    
+    try:
+        TEACHING_BOT.stop_teaching_session()
+        TEACHING_ACTIVE = False
+        
+        # Re-enable content processing
+        CONTENT_PROCESSING_ACTIVE = True
+        print("🔄 Content processing re-enabled - teaching session stopped")
+        
+        return jsonify({
+            "success": True,
+            "message": "Teaching session stopped - content processing re-enabled"
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "message": f"Error stopping teaching session: {str(e)}"
+        })
+
+@app.get("/teaching_status")
+def teaching_status():
+    """
+    Returns the current teaching status.
+    """
+    global TEACHING_BOT, TEACHING_ACTIVE
+    
+    if not TEACHING_BOT or not TEACHING_ACTIVE:
+        return jsonify({
+            "active": False,
+            "message": "No teaching session active"
+        })
+    
+    try:
+        read, total = TEACHING_BOT.get_progress()
+        return jsonify({
+            "active": True,
+            "progress": {
+                "read": read,
+                "total": total,
+                "percentage": (read / total * 100) if total > 0 else 0
+            },
+            "topic": TEACHING_BOT.learning_content.get('overall_topic', 'N/A'),
+            "current_bullet": TEACHING_BOT.current_bullet_index,
+            "total_bullets": len(TEACHING_BOT.unread_bullet_points)
+        })
+        
+    except Exception as e:
+        return jsonify({
+            "active": False,
+            "message": f"Error getting teaching status: {str(e)}"
+        })
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)

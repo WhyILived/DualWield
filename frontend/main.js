@@ -6,8 +6,12 @@ class HT6ixApp {
         this.currentView = 'full'; // 'full' or 'mini'
         this.isVisualizerFocused = false;
         this.circularButton = null;
+        this.teachingButton = null;
         this.bufferEmpty = true;
+        this.logEmpty = true;
+        this.teachingActive = false;
         this.bufferCheckInterval = null;
+        this.logCheckInterval = null;
         
         this.init();
     }
@@ -41,11 +45,16 @@ class HT6ixApp {
         // Start buffer monitoring
         this.startBufferMonitoring();
         
+        // Start log monitoring
+        this.startLogMonitoring();
+        
         console.log('HT6ix AI Teaching Bot frontend initialized');
     }
     
     setupCircularButton() {
         this.circularButton = document.getElementById('circular-button');
+        this.teachingButton = document.getElementById('teaching-button');
+        
         if (this.circularButton) {
             this.circularButton.addEventListener('click', () => {
                 this.handleButtonClick();
@@ -59,6 +68,20 @@ class HT6ixApp {
                 this.disableButtonClicks();
             });
         }
+        
+        if (this.teachingButton) {
+            this.teachingButton.addEventListener('click', () => {
+                this.handleTeachingButtonClick();
+            });
+            
+            this.teachingButton.addEventListener('mouseenter', () => {
+                this.enableButtonClicks();
+            });
+            
+            this.teachingButton.addEventListener('mouseleave', () => {
+                this.disableButtonClicks();
+            });
+        }
     }
     
     setupMouseTracking() {
@@ -69,21 +92,29 @@ class HT6ixApp {
     }
     
     handleMouseMove(event) {
-        if (!this.circularButton) return;
+        if (!this.circularButton || !this.teachingButton) return;
         
         const buttonRect = this.circularButton.getBoundingClientRect();
+        const teachingButtonRect = this.teachingButton.getBoundingClientRect();
         const mouseX = event.clientX;
         const mouseY = event.clientY;
         
-        // Check if mouse is over the button
-        const isOverButton = (
+        // Check if mouse is over either button
+        const isOverCircularButton = (
             mouseX >= buttonRect.left &&
             mouseX <= buttonRect.right &&
             mouseY >= buttonRect.top &&
             mouseY <= buttonRect.bottom
         );
         
-        if (isOverButton) {
+        const isOverTeachingButton = (
+            mouseX >= teachingButtonRect.left &&
+            mouseX <= teachingButtonRect.right &&
+            mouseY >= teachingButtonRect.top &&
+            mouseY <= teachingButtonRect.bottom
+        );
+        
+        if (isOverCircularButton || isOverTeachingButton) {
             this.enableButtonClicks();
         } else {
             this.disableButtonClicks();
@@ -184,6 +215,147 @@ class HT6ixApp {
         if (this.bufferCheckInterval) {
             clearInterval(this.bufferCheckInterval);
             this.bufferCheckInterval = null;
+        }
+    }
+    
+    handleTeachingButtonClick() {
+        console.log('🎓 Teaching button clicked!');
+        
+        if (this.teachingActive) {
+            this.stopTeachingSession();
+        } else {
+            this.startTeachingSession();
+        }
+    }
+    
+    async startTeachingSession() {
+        try {
+            this.textBox.info('🚀 Starting teaching session...');
+            
+            const response = await fetch('http://localhost:5001/start_teaching', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                this.teachingActive = true;
+                this.textBox.success('✅ Teaching session started!');
+                this.textBox.info(`📚 Topic: ${result.topic}`);
+                this.textBox.info(`📝 Subtopics: ${result.subtopics}`);
+                this.textBox.info(`📖 Bullet points: ${result.bullet_points}`);
+                this.textBox.info('🛑 Content processing stopped');
+                this.updateTeachingButtonState(true);
+                this.hideTeachingButton(); // Hide button when teaching starts
+            } else {
+                this.textBox.error(`❌ ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error starting teaching session:', error);
+            this.textBox.error('❌ Failed to start teaching session');
+        }
+    }
+    
+    async stopTeachingSession() {
+        try {
+            this.textBox.info('⏹️ Stopping teaching session...');
+            
+            const response = await fetch('http://localhost:5001/stop_teaching', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                this.teachingActive = false;
+                this.textBox.success('✅ Teaching session stopped!');
+                this.textBox.info('🔄 Content processing re-enabled');
+                this.updateTeachingButtonState(false);
+                this.showTeachingButtonIfLogHasContent(); // Show button again if log has content
+            } else {
+                this.textBox.error(`❌ ${result.message}`);
+            }
+        } catch (error) {
+            console.error('Error stopping teaching session:', error);
+            this.textBox.error('❌ Failed to stop teaching session');
+        }
+    }
+    
+    updateTeachingButtonState(active) {
+        if (this.teachingButton) {
+            if (active) {
+                this.teachingButton.classList.add('active');
+            } else {
+                this.teachingButton.classList.remove('active');
+            }
+        }
+    }
+    
+    async checkLogStatus() {
+        try {
+            const response = await fetch('http://localhost:5001/log_status');
+            const result = await response.json();
+            
+            const wasEmpty = this.logEmpty;
+            this.logEmpty = result.log_empty;
+            
+            // Update teaching button visibility if log state changed
+            if (wasEmpty !== this.logEmpty) {
+                this.updateTeachingButtonVisibility(this.logEmpty);
+                
+                if (!this.logEmpty) {
+                    this.textBox.info('📚 New content available for teaching');
+                } else {
+                    this.textBox.info('📚 No content available for teaching');
+                }
+            }
+        } catch (error) {
+            console.error('Error checking log status:', error);
+            // Don't show error messages for server connection issues to avoid spam
+        }
+    }
+    
+    updateTeachingButtonVisibility(logEmpty) {
+        if (this.teachingButton) {
+            if (logEmpty) {
+                this.teachingButton.style.display = 'none';
+            } else {
+                this.teachingButton.style.display = 'flex';
+            }
+        }
+    }
+    
+    hideTeachingButton() {
+        if (this.teachingButton) {
+            this.teachingButton.style.display = 'none';
+        }
+    }
+    
+    showTeachingButtonIfLogHasContent() {
+        // Check if log has content and show button if it does
+        this.checkLogStatus();
+    }
+    
+    startLogMonitoring() {
+        // Check log status every 3 seconds
+        this.logCheckInterval = setInterval(() => {
+            this.checkLogStatus();
+        }, 3000);
+        
+        // Initial check
+        this.checkLogStatus();
+    }
+    
+    stopLogMonitoring() {
+        if (this.logCheckInterval) {
+            clearInterval(this.logCheckInterval);
+            this.logCheckInterval = null;
         }
     }
     
