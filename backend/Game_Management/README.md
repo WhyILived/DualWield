@@ -96,8 +96,3 @@ In Valorant, the "Combat Report" appears as soon as you're eliminated. It's a co
 - Add automatic log saving to CSV or JSON
 - Integrate with sound alert or Discord bot
 - Use OpenCV template matching instead of or alongside OCR
-
-Let me know if you want this turned into a README.md file directly, or want to add multiple script modes (OCR-only, template-only, hybrid).
-=======
-
-💻 No interference with game process — safe and ban-free
