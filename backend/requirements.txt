@@ -8,6 +8,10 @@ requests
 python-multipart
 aiofiles
 flask
+mss
+opencv-python
+numpy
+pytesseract
 yt_dlp
 twelvelabs
 pygame
