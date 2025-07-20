@@ -128,4 +128,9 @@ This project is licensed under the [LICENSE NAME] - see the [LICENSE.md](LICENSE
 
 ---
 
-**Note**: This is a template README. Please update it with your specific project details, features, and team information. 
+
+## 📚 Documentation
+
+- [Game Management](https://github.com/WhyILived/HT6ix/blob/main/documentation/Game_Management.md)
+- [Twelve Labs Integration](https://github.com/WhyILived/HT6ix/blob/main/documentation/Twelve_labs.md)
+- [YouTube Download](https://github.com/WhyILived/HT6ix/blob/main/documentation/Youtube_download.md)
