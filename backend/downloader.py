@@ -17,3 +17,4 @@ def download_video(url: str, output_path: str = ".") -> str:
         info = ydl.extract_info(url, download=True)
         # This returns the actual filename written to disk
         return ydl.prepare_filename(info)
+
