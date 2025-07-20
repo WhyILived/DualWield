@@ -532,12 +532,19 @@ class HT6ixApp {
                     this.textBox.info(result.interview_link);
                     
                     // Open the link automatically
-                    if (window.require) {
-                        const { shell } = require('electron');
-                        shell.openExternal(result.interview_link);
-                    } else {
-                        // Fallback for non-Electron environment
-                        window.open(result.interview_link, '_blank');
+                    try {
+                        if (window.require) {
+                            const { ipcRenderer } = require('electron');
+                            console.log('🔗 Sending open-link IPC:', result.interview_link);
+                            ipcRenderer.send('open-external-link', result.interview_link);
+                        } else {
+                            // Fallback for non-Electron environment
+                            console.log('🔗 Opening interview link (fallback):', result.interview_link);
+                            window.open(result.interview_link, '_blank');
+                        }
+                    } catch (error) {
+                        console.error('❌ Error opening link:', error);
+                        this.textBox.error('❌ Failed to open interview link automatically');
                     }
                 }
             } else {

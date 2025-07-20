@@ -119,6 +119,18 @@ ipcMain.handle('set-mouse-events', async (event, enabled, region = null) => {
   }
 });
 
+// IPC handler for opening external links
+ipcMain.on('open-external-link', (event, url) => {
+  console.log(`🔗 Opening external link: ${url}`);
+  try {
+    const { shell } = require('electron');
+    shell.openExternal(url);
+    console.log('✅ Link opened successfully');
+  } catch (error) {
+    console.error('❌ Failed to open link:', error);
+  }
+});
+
 // App event handlers
 app.whenReady().then(() => {
   console.log('🚀 App is ready, creating window...');

@@ -206,6 +206,8 @@ def conduct_interview(questions, additional_info):
     Returns:
         tuple: (interview_link, transcript) or (None, None) if failed
     """
+    import webbrowser
+    
     interviewer = RibbonInterviewer()
     
     # Create the interview
@@ -213,35 +215,19 @@ def conduct_interview(questions, additional_info):
     if not interview_id:
         return None, None
     
-    print(f"\n🌐 Open this link to complete the interview:")
+    print(f"\n🌐 Opening interview link automatically:")
     print(f"   {interview_link}")
-    print("\nPress Enter after completing the interview to retrieve the transcript...")
     
-    input() # Comment Out Eventually!
-    
-    # Get the transcript
-    url = f"https://app.ribbon.ai/be-api/v1/interviews/{interview_id}"
-
-    headers = {
-        "accept": "application/json",
-        "authorization": "Bearer efbc484a-e854-4465-9426-b98e97bd35db"
-    }
-
+    # Automatically open the link in the default browser
     try:
-        response = requests.get(url, headers=headers).json()
-        
-        # if response:
-        #     # Save response
-        #     filename = f"response_{interview_id}.json"
-        #     with open(filename, 'w', encoding='utf-8') as f:
-        #         json.dump(response, f, indent=2, ensure_ascii=False)
-        #     print(f"\n📝 response saved to: {filename}")
-        
-        transcript = response["interview_data"]["transcript"]
-        return interview_link, transcript
-    except:
-        print('Returning "Transcript Failed"')
-        return interview_link, "Transcript Failed"
+        webbrowser.open(interview_link)
+        print("✅ Interview link opened in browser")
+    except Exception as e:
+        print(f"❌ Failed to open link automatically: {e}")
+        print("   Please open the link manually")
+    
+    # Return immediately without waiting for user input
+    return interview_link, None
 
 
 # Function to just get transcript without waiting
