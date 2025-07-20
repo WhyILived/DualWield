@@ -5,6 +5,7 @@ class HT6ixApp {
         this.textBox = null;
         this.currentView = 'full'; // 'full' or 'mini'
         this.isVisualizerFocused = false;
+        this.circularButton = null;
         
         this.init();
     }
@@ -23,13 +24,87 @@ class HT6ixApp {
         this.audioVisualizer = new AudioVisualizer();
         this.textBox = new TextBox();
         
+        // Set up circular button
+        this.setupCircularButton();
+        
         // Set up IPC listeners
         this.setupIPCListeners();
         
         // Set up keyboard shortcuts
         this.setupKeyboardShortcuts();
         
+        // Set up mouse tracking for click-through
+        this.setupMouseTracking();
+        
         console.log('HT6ix AI Teaching Bot frontend initialized');
+    }
+    
+    setupCircularButton() {
+        this.circularButton = document.getElementById('circular-button');
+        if (this.circularButton) {
+            this.circularButton.addEventListener('click', () => {
+                this.handleButtonClick();
+            });
+            
+            this.circularButton.addEventListener('mouseenter', () => {
+                this.enableButtonClicks();
+            });
+            
+            this.circularButton.addEventListener('mouseleave', () => {
+                this.disableButtonClicks();
+            });
+        }
+    }
+    
+    setupMouseTracking() {
+        // Track mouse movement to enable/disable click-through
+        document.addEventListener('mousemove', (event) => {
+            this.handleMouseMove(event);
+        });
+    }
+    
+    handleMouseMove(event) {
+        if (!this.circularButton) return;
+        
+        const buttonRect = this.circularButton.getBoundingClientRect();
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+        
+        // Check if mouse is over the button
+        const isOverButton = (
+            mouseX >= buttonRect.left &&
+            mouseX <= buttonRect.right &&
+            mouseY >= buttonRect.top &&
+            mouseY <= buttonRect.bottom
+        );
+        
+        if (isOverButton) {
+            this.enableButtonClicks();
+        } else {
+            this.disableButtonClicks();
+        }
+    }
+    
+    enableButtonClicks() {
+        if (window.require) {
+            const { ipcRenderer } = require('electron');
+            ipcRenderer.invoke('set-mouse-events', true);
+        }
+    }
+    
+    disableButtonClicks() {
+        if (window.require) {
+            const { ipcRenderer } = require('electron');
+            ipcRenderer.invoke('set-mouse-events', false);
+        }
+    }
+    
+    handleButtonClick() {
+        console.log('🔘 Circular button clicked!');
+        this.textBox.success('Button clicked! This will trigger learning content.');
+        
+        // TODO: Add your button functionality here
+        // For example: start teaching session, add content, etc.
     }
     
     setupIPCListeners() {
