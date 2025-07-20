@@ -1,6 +1,6 @@
 body {
     background-color: transparent;
-    color: #008cff;
+    color: #ff4444;
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     margin: 0;
     height: 100vh;
@@ -52,7 +52,7 @@ body {
     width: 280px;
     height: 120px;
     background-color: rgba(10, 10, 10, 0.8);
-    border: 1px solid rgba(0, 170, 255, 0.6);
+    border: 1px solid rgba(255, 68, 68, 0.6);
     backdrop-filter: blur(80px);
     -webkit-backdrop-filter: blur(80px);
     border-radius: 4px;
@@ -72,7 +72,7 @@ body {
     transform: translateY(-50%);
     width: 45px;
     height: 45px;
-    background-color: rgba(0, 170, 255, 0.9);
+    background-color: rgba(255, 68, 68, 0.9);
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     display: none; /* Hidden by default, shown when buffer has content */
@@ -81,14 +81,14 @@ body {
     cursor: pointer;
     pointer-events: auto; /* Enable clicks for button */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
     z-index: 1000;
 }
 
 .circular-button:hover {
-    background-color: rgba(0, 170, 255, 1);
+    background-color: rgba(255, 68, 68, 1);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 170, 255, 0.5);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
 }
 
 .circular-button:active {
@@ -103,7 +103,7 @@ body {
     transform: translateY(-50%);
     width: 45px;
     height: 45px;
-    background-color: rgba(255, 140, 0, 0.9);
+    background-color: rgba(255, 68, 68, 0.9);
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     display: none; /* Hidden by default, shown when log has content */
@@ -112,14 +112,14 @@ body {
     cursor: pointer;
     pointer-events: auto; /* Enable clicks for button */
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
     z-index: 1000;
 }
 
 .teaching-button:hover {
-    background-color: rgba(255, 140, 0, 1);
+    background-color: rgba(255, 68, 68, 1);
     transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
 }
 
 .teaching-button:active {
@@ -150,14 +150,14 @@ body {
     left: 0;
     right: 0;
     height: 30px;
-    background-color: rgba(0, 170, 255, 0.1);
-    border-bottom: 1px solid rgba(0, 170, 255, 0.2);
+    background-color: rgba(255, 68, 68, 0.1);
+    border-bottom: 1px solid rgba(255, 68, 68, 0.2);
     border-radius: 4px 4px 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 12px;
-    color: #00aaff;
+    color: #ff4444;
     font-size: 11px;
     font-weight: bold;
     z-index: 2;
@@ -171,7 +171,7 @@ body {
     bottom: 0;
     padding: 12px;
     overflow-y: auto;
-    color: #00aaff;
+    color: #ff4444;
     font-size: 12px;
     line-height: 1.4;
 }
@@ -181,23 +181,23 @@ body {
 }
 
 .text-box-content::-webkit-scrollbar-track {
-    background: rgba(0, 170, 255, 0.1);
+    background: rgba(255, 68, 68, 0.1);
     border-radius: 2px;
 }
 
 .text-box-content::-webkit-scrollbar-thumb {
-    background: rgba(0, 170, 255, 0.4);
+    background: rgba(255, 68, 68, 0.4);
     border-radius: 2px;
 }
 
 .text-box-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 170, 255, 0.6);
+    background: rgba(255, 68, 68, 0.6);
 }
 
 .message {
     margin-bottom: 8px;
     padding: 4px 0;
-    border-bottom: 1px solid rgba(0, 170, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 68, 68, 0.1);
 }
 
 .message:last-child {
@@ -205,7 +205,7 @@ body {
 }
 
 .message.info {
-    color: #00aaff;
+    color: #ff4444;
 }
 
 .message.success {
@@ -230,7 +230,7 @@ body {
 }
 
 .message-arrow {
-    color: #00aaff;
+    color: #ff4444;
     margin-right: 8px;
     font-weight: bold;
 }
