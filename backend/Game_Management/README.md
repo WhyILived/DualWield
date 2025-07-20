@@ -61,6 +61,8 @@ The script will continuously scan a 500×500 pixel region of your screen:
 
 Region: `{"top": 350, "left": 1450, "width": 500, "height": 500}`
 
+<img width="404" height="396" alt="image" src="https://github.com/user-attachments/assets/669c9567-4a3c-462b-9fc1-b3110f30e65c" />
+
 - If "combat report" appears in that region, it logs the time.
 - When the phrase disappears, it logs the duration it was visible.
 
