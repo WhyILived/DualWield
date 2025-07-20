@@ -151,7 +151,7 @@ class AudioVisualizer {
         const maxBarHeight = this.canvas.height * 0.3;
         
         this.ctx.save();
-        this.ctx.fillStyle = '#00aaff';
+        this.ctx.fillStyle = '#ff0000';
         this.ctx.globalAlpha = 0.7;
         
         for (let i = 0; i < barCount; i++) {
@@ -168,12 +168,13 @@ class AudioVisualizer {
     }
     
     getRingColor(audioLevel) {
+        // Use only red colors with varying brightness
         if (audioLevel > 0.3) {
-            return '#00ff88'; // Green for high activity
+            return '#ff0000'; // Bright red for high activity
         } else if (audioLevel > 0.1) {
-            return '#ff6b00'; // Orange for medium activity
+            return '#cc0000'; // Medium red for medium activity
         } else {
-            return '#00aaff'; // Blue for low/idle activity
+            return '#990000'; // Dark red for low/idle activity
         }
     }
     
