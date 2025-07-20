@@ -12,4 +12,4 @@ additional_info = "This is NOT an interview persay, rather a test after a lesson
 link, transcript = conduct_interview(questions, additional_info)
 
 if transcript:
-    print(f"Interview completed! Transcript: {transcript[:200]}...")
+    print(f"Interview completed! Transcript should be done - no errors and got here")

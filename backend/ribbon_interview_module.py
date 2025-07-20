@@ -109,10 +109,13 @@ class RibbonInterviewer:
                 return None
         
         if wait_for_completion:
-            print("⏳ Waiting for interview completion...")
+            print("⏳ Waiting for interview completion and transcript...")
             max_wait = 300  # 5 minutes
             check_interval = 10  # Check every 10 seconds
             start_time = time.time()
+            
+            # Track if we've seen completed status
+            seen_completed = False
             
             while time.time() - start_time < max_wait:
                 try:
@@ -123,11 +126,31 @@ class RibbonInterviewer:
                     
                     if response.status_code == 200:
                         data = response.json()
-                        if data.get('status') == 'completed' and data.get('transcript'):
-                            print("✅ Interview completed!")
+                        status = data.get('status', 'unknown')
+                        has_transcript = bool(data.get('transcript'))
+                        
+                        # Print status only if it changed
+                        if status == 'completed' and not seen_completed:
+                            print("✅ Interview completed! Waiting for transcript...")
+                            seen_completed = True
+                        elif status != 'completed':
+                            print(f"   Status: {status}")
+                        
+                        # Check for transcript
+                        if has_transcript:
+                            print("✅ Transcript available!")
+                            
+                            # Save the full response for debugging
+                            debug_file = f"interview_data_{interview_id}.json"
+                            with open(debug_file, 'w') as f:
+                                json.dump(data, f, indent=2)
+                            
                             return data['transcript']
-                        else:
-                            print(f"   Status: {data.get('status', 'unknown')}")
+                        elif seen_completed:
+                            # If completed but no transcript, show that we're waiting
+                            print("   Waiting for transcript processing...")
+                    else:
+                        print(f"❌ API error: {response.status_code}")
                     
                     time.sleep(check_interval)
                     
@@ -135,7 +158,23 @@ class RibbonInterviewer:
                     print(f"❌ Error checking status: {e}")
                     time.sleep(check_interval)
             
-            print("⏱️ Timeout reached")
+            # Final attempt to get transcript
+            print("⏱️ Timeout reached - making final check...")
+            try:
+                response = requests.get(
+                    f"{self.base_url}/interviews/{interview_id}",
+                    headers=self.headers
+                )
+                if response.status_code == 200:
+                    data = response.json()
+                    if data.get('transcript'):
+                        return data['transcript']
+                    else:
+                        print("❌ Interview completed but transcript not available")
+                        print("   Try running the script again in a few minutes")
+            except:
+                pass
+                
             return None
         else:
             # Just get current transcript without waiting
@@ -146,7 +185,8 @@ class RibbonInterviewer:
                 )
                 
                 if response.status_code == 200:
-                    return response.json().get('transcript')
+                    data = response.json()
+                    return data.get('transcript')
                     
             except Exception as e:
                 print(f"❌ Error: {e}")
@@ -176,36 +216,87 @@ def conduct_interview(questions, additional_info):
     print(f"\n🌐 Open this link to complete the interview:")
     print(f"   {interview_link}")
     print("\nPress Enter after completing the interview to retrieve the transcript...")
-    input()
     
-    # # Get the transcript
-    # transcript = interviewer.get_transcript(interview_id)
+    input() # Comment Out Eventually!
     
-    # if transcript:
-    #     # Save transcript
-    #     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    #     filename = f"transcript_{interview_id}_{timestamp}.txt"
-    #     with open(filename, 'w', encoding='utf-8') as f:
-    #         f.write(transcript)
-    #     print(f"\n📝 Transcript saved to: {filename}")
+    # Get the transcript
+    url = f"https://app.ribbon.ai/be-api/v1/interviews/{interview_id}"
+
+    headers = {
+        "accept": "application/json",
+        "authorization": "Bearer efbc484a-e854-4465-9426-b98e97bd35db"
+    }
+
+    try:
+        transcript = requests.get(url, headers=headers).json()
+        
+        if transcript:
+            # Save transcript
+            filename = f"transcript_{interview_id}.json"
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(transcript, f, indent=2, ensure_ascii=False)
+            print(f"\n📝 Transcript saved to: {filename}")
+        
+        return interview_link, transcript
+    except:
+        return "Transcript Failed"
+
+
+# Function to just get transcript without waiting
+def get_latest_transcript():
+    """Get transcript for the latest interview without waiting"""
+    interviewer = RibbonInterviewer()
     
-    transcript = "feed an eventually answer here to gemini*"
+    # Get the latest interview ID
+    interview_id = None
+    if os.path.exists(interviewer.interview_id_file):
+        with open(interviewer.interview_id_file, 'r') as f:
+            interview_id = f.read().strip()
     
-    return interview_link, transcript
+    if not interview_id:
+        print("❌ No interview ID found")
+        return None
+    
+    print(f"🔍 Checking interview: {interview_id}")
+    
+    # Get without waiting
+    transcript = interviewer.get_transcript(interview_id, wait_for_completion=False)
+    
+    if transcript:
+        print("✅ Transcript found!")
+        # Save it
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = f"transcript_{interview_id}_{timestamp}.txt"
+        with open(filename, 'w', encoding='utf-8') as f:
+            f.write(transcript)
+        print(f"📝 Transcript saved to: {filename}")
+    else:
+        print("❌ Transcript not available yet")
+    
+    return transcript
 
 
 # Example usage when run directly
 if __name__ == "__main__":
-    questions = [
-        "What is the difference between a stack and a queue?",
-        "Explain Big O notation in simple terms."
-    ]
+    import sys
     
-    additional_info = "This is a computer science knowledge test. Ask follow-up questions to assess understanding of data structures and algorithms."
-    
-    link, transcript = conduct_interview(questions, additional_info)
-    
-    if transcript:
-        print("\n📝 Transcript:")
-        print("-" * 50)
-        print(transcript)
+    # Check if running in "check" mode
+    if len(sys.argv) > 1 and sys.argv[1] == "check":
+        get_latest_transcript()
+    else:
+        questions = [
+            "What is the difference between a stack and a queue?",
+            "Explain Big O notation in simple terms."
+        ]
+        
+        additional_info = "This is a computer science knowledge test. Ask follow-up questions to assess understanding of data structures and algorithms."
+        
+        link, transcript = conduct_interview(questions, additional_info)
+        
+        if transcript:
+            print("\n📝 Transcript:")
+            print("-" * 50)
+            print(transcript)
+        else:
+            print("\n❌ Could not get transcript. You can try again with:")
+            print("   python ribbon_interview_simple.py check")
