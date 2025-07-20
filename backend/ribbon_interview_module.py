@@ -240,7 +240,8 @@ def conduct_interview(questions, additional_info):
         transcript = response["interview_data"]["transcript"]
         return interview_link, transcript
     except:
-        return "Transcript Failed"
+        print('Returning "Transcript Failed"')
+        return interview_link, "Transcript Failed"
 
 
 # Function to just get transcript without waiting
