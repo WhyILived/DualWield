@@ -9,6 +9,7 @@ from downloader import download_video
 from summarize import summarize_video
 
 CONTENT_LOG = ""
+CONTENT_BUFFER = ""
 
 app = Flask(__name__)
 
@@ -22,6 +23,18 @@ def get_log() -> str:
     Returns the current contents of the global content log string.
     """
     return CONTENT_LOG
+
+def get_buffer() -> str:
+    """
+    Returns the current contents of the buffer.
+    """
+    return CONTENT_BUFFER
+
+def is_buffer_empty() -> bool:
+    """
+    Returns True if the buffer is empty, False otherwise.
+    """
+    return len(CONTENT_BUFFER.strip()) == 0
 
 def get_youtube_link():
     """
@@ -102,11 +115,12 @@ def log():
     try:
         summary_text = summarize_youtube_video(link)
         print(summary_text)
-        global CONTENT_LOG
-        CONTENT_LOG += f"{summary_text}\n"
+        global CONTENT_BUFFER
+        CONTENT_BUFFER = f"{summary_text}\n"  # Replace buffer with new content
         return jsonify({
             "url": link,
-            "summary": summary_text
+            "summary": summary_text,
+            "buffer_empty": is_buffer_empty()
         })
 
     except Exception as e:
@@ -116,13 +130,44 @@ def log():
 def pdf():
     text = get_pdf()
     print("PDF_TEXT_LEN", len(text) if text else 0)
-    global CONTENT_LOG
-    CONTENT_LOG += f"{text}\n"
-    return {"text": text}
+    global CONTENT_BUFFER
+    CONTENT_BUFFER = f"{text}\n"  # Replace buffer with new content
+    return {"text": text, "buffer_empty": is_buffer_empty()}
 
 @app.get("/dump")
 def dump():
     return {"log": get_log()}
+
+@app.post("/commit_buffer")
+def commit_buffer():
+    """
+    Appends the buffer content to the log and clears the buffer.
+    """
+    global CONTENT_LOG, CONTENT_BUFFER
+    if CONTENT_BUFFER.strip():
+        CONTENT_LOG += CONTENT_BUFFER
+        CONTENT_BUFFER = ""
+        return jsonify({
+            "success": True,
+            "message": "Buffer committed to log",
+            "buffer_empty": True
+        })
+    else:
+        return jsonify({
+            "success": False,
+            "message": "Buffer is empty",
+            "buffer_empty": True
+        })
+
+@app.get("/buffer_status")
+def buffer_status():
+    """
+    Returns the current buffer status.
+    """
+    return jsonify({
+        "buffer_empty": is_buffer_empty(),
+        "buffer_content": get_buffer()
+    })
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)

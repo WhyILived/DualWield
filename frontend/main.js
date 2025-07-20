@@ -6,6 +6,8 @@ class HT6ixApp {
         this.currentView = 'full'; // 'full' or 'mini'
         this.isVisualizerFocused = false;
         this.circularButton = null;
+        this.bufferEmpty = true;
+        this.bufferCheckInterval = null;
         
         this.init();
     }
@@ -35,6 +37,9 @@ class HT6ixApp {
         
         // Set up mouse tracking for click-through
         this.setupMouseTracking();
+        
+        // Start buffer monitoring
+        this.startBufferMonitoring();
         
         console.log('HT6ix AI Teaching Bot frontend initialized');
     }
@@ -101,10 +106,85 @@ class HT6ixApp {
     
     handleButtonClick() {
         console.log('🔘 Circular button clicked!');
-        this.textBox.success('Button clicked! This will trigger learning content.');
+        this.textBox.success('Committing buffer to log...');
         
-        // TODO: Add your button functionality here
-        // For example: start teaching session, add content, etc.
+        // Commit buffer to log
+        this.commitBuffer();
+    }
+    
+    async commitBuffer() {
+        try {
+            const response = await fetch('http://localhost:5001/commit_buffer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                this.textBox.success('✅ Buffer committed to log successfully!');
+                this.updateButtonVisibility(true); // Hide button
+            } else {
+                this.textBox.error('❌ Buffer is empty, nothing to commit');
+            }
+        } catch (error) {
+            console.error('Error committing buffer:', error);
+            this.textBox.error('❌ Failed to commit buffer');
+        }
+    }
+    
+    async checkBufferStatus() {
+        try {
+            const response = await fetch('http://localhost:5001/buffer_status');
+            const result = await response.json();
+            
+            const wasEmpty = this.bufferEmpty;
+            this.bufferEmpty = result.buffer_empty;
+            
+            // Update button visibility if buffer state changed
+            if (wasEmpty !== this.bufferEmpty) {
+                this.updateButtonVisibility(this.bufferEmpty);
+                
+                if (!this.bufferEmpty) {
+                    this.textBox.info('📝 New content detected in buffer');
+                } else {
+                    this.textBox.info('📝 Buffer is now empty');
+                }
+            }
+        } catch (error) {
+            console.error('Error checking buffer status:', error);
+            // Don't show error messages for server connection issues to avoid spam
+            // The button will remain hidden if server is not available
+        }
+    }
+    
+    updateButtonVisibility(bufferEmpty) {
+        if (this.circularButton) {
+            if (bufferEmpty) {
+                this.circularButton.style.display = 'none';
+            } else {
+                this.circularButton.style.display = 'flex';
+            }
+        }
+    }
+    
+    startBufferMonitoring() {
+        // Check buffer status every 2 seconds
+        this.bufferCheckInterval = setInterval(() => {
+            this.checkBufferStatus();
+        }, 2000);
+        
+        // Initial check
+        this.checkBufferStatus();
+    }
+    
+    stopBufferMonitoring() {
+        if (this.bufferCheckInterval) {
+            clearInterval(this.bufferCheckInterval);
+            this.bufferCheckInterval = null;
+        }
     }
     
     setupIPCListeners() {

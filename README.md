@@ -134,4 +134,4 @@ This project is licensed under the [LICENSE NAME] - see the [LICENSE.md](LICENSE
 - [Game Management](https://github.com/WhyILived/HT6ix/blob/main/documentation/Game_Management.md)
 - [Twelve Labs Integration](https://github.com/WhyILived/HT6ix/blob/main/documentation/Twelve_labs.md)
 - [YouTube Download](https://github.com/WhyILived/HT6ix/blob/main/documentation/Youtube_download.md)
-- [TwelveLab Game Report Research]([https://github.com/WhyILived/HT6ix/blob/main/documentation/Youtube_download.md](https://github.com/WhyILived/HT6ix/tree/main/TwelveLabGameReport))
+- [TwelveLab Game Report Research](https://github.com/WhyILived/HT6ix/tree/main/TwelveLabGameReport)
