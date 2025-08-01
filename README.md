@@ -1,4 +1,4 @@
-# HackThe6ith
+# DualWield - HackThe6ith
 
 A collaborative project for HackThe6ix hackathon.
 
